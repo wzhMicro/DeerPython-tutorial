@@ -1,10 +1,286 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+<head>
+    <title>Deer Python</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="shortcut icon"  href="images/favicon.ico" type="image/x-icon" />
 </head>
-<body>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <p class="logo"><a href="index.html"><strong>Deer</strong>—Python</a></p>
+                <ul class="icons">
+                    <li><a href="https://space.bilibili.com/379211059/#/" ><span class="label"><img src="images/bilibili.png"></span></a></li>
+                    <li><a href="https://github.com/wzhMicro" class="icon fa-github"><span class="label">Github</span></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCN9JQUexZdUEAqJ-pylMTLg?view_as=subscriber" class="icon fa-youtube"><span class="label">Youtube</span></a></li>
+                </ul>
+            </header>
+
+            <!-- Content -->
+            <section>
+                <header class="main">
+                    <h1>变量类型</h1>
+                </header>
+                <p>Python 中的变量不需要声明。每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。
+                    等号（=）用来给变量赋值。
+                    等号（=）运算符左边是一个变量名,等号（=）运算符右边是存储在变量中的值。</p>
+                <code>number=0    #整型变量</code>
+                <code>name="Python"   #字符串</code>
+                <code>score=19.9    # 浮点型变量</code>
+                <p>执行以下程序可显示：</p>
+                <img src="images/3/3.1fuzhi.PNG">
+                <hr class="major" />
+
+                <h2>多个变量赋值</h2>
+                <p>Python允许你同时为多个变量赋值。例如：</p>
+                <code>a=b=c=1</code>
+                <p>或者是：</p>
+                <code>a,b,c=0,"python",0</code>
+                <hr class="major" />
+
+                <h2>数据类型</h2>
+                <p>Number : int、float、bool、complex（复数）</p>
+                <p>String</p>
+                <p>List</p>
+                <p>Tuple（元组）</p>
+                <p>Set（集合）</p>
+                <p>Dictionary（字典）</p>
+                <hr class="major" />
+
+                <h2>Number</h2>
+                <p>数值运算大家可以随意尝试。在混合计算时，Python会把整型转换成为浮点数。这里我说一下除法有两种形式<code>/</code>和<code>//</code></p>
+                <p><code>/</code>是得到一个浮点数</p>
+                <p><code>//</code>是得到一个整数</p>
+                <p><code>%</code>是模运算，比如：5%2=1（余数为1）；</p>
+                <hr class="major" />
+
+                <h2>String</h2>
+                <p>字符串是以单引号<code>'</code>或双引号<code>"</code>括起来的任意文本，</p>
+                <p><code>'This is a string'</code>或者是<code>"This is a string too"</code></p>
+                <p>字符串截取是通过<code>[x:y]</code>.x是开始截取的起始index，y是截至index。比如：</p>
+                <code>s="abcdefg";print(s[3:5])</code>s输出结果为：<code>cdef</code>
+                <p>具体还要以下常用方法：</p>
+                <img src="images/3/str.PNG">
+                <strong><p>注意：1.[x:y:z]中第三个参数z代表步长，即按照x，y的方向每次选取z个字符。
+                    2.Python中的字符串有两种索引方式，从左往右以0开始，从右往左以-1开始。</p></strong>
+
+                <hr class="major" />
+                <h2>List</h2>
+                <p>列表可以支持数字，字符串甚至是嵌套列表。</p>
+                <p>定义一个列表是在<code>[ ]</code>中并且以逗号<code>,</code>分隔开。和字符串一样，索引从左往右以0开始，从右往左以-1开始。</p>
+                <p>具体方法大致如下：</p>
+                <img src="images/3/list.PNG">
+                <p>列表可以进行增加或修改，比如：List=['123','234','4455','3434']</p>
+                <p><strong>尾部增加：</strong><code>List.append('xyz')</code>列表尾部增加一项变为<code>['123','234','4455','3434','xyz']</code></p>
+                <p><strong>指定位置增加：</strong><code>List.insert(2,'xyz')</code>列表第二个位置增加一项变为<code>['123','234','xyz','4455','3434']</code></p>
+                <p><strong>从列表尾部删除元素：</strong><code>List.pop()</code>列表删除最后一项变为<code>['123','234','4455']</code></p>
+                <p><strong>删除指定位置元素：</strong><code>List.pop(2)</code>列表删除第2项变为<code>['123','234','3434']</code></p>
+                <p><strong>替换列表元素：</strong><code>List[1]='string'</code>列表第一项被替换<code>['123','string','4455','3434']</code></p>
+
+
+
+                <hr class="major" />
+
+                <h2>Tuple（元组）</h2>
+                <p>元组与列表类似，不同之处在于元组的元素不能修改（定义好后就被定死了，所以较为安全）。元组写在小括号 () 里，元素之间用逗号隔开。</p>
+                <p>元组的截取方法等和列表一样。值得注意的是当需要定义一个<strong>只有一个元素</strong>的元组时：</p>
+                <p>如果写出这样<code>tuple(1)</code>。这样会输出为<code>1</code>这个数字.不为元组。这是因为括号同样也可以表示数学公式中的小括号，所以产生了歧义。</p>
+                <p>所以需要在最后加上一个逗号来消除歧义。<code>tuple(1,)</code>。这样输出为<code>(1,)</code></p>
+
+                <p>但是有个很有意思的一点: 元组中可以存在列表，处于元组内的列表是可以修改的。<code>tuple=('1','2',['3','4'])</code>可以修改元组第2项<code>['3','4']</code>但是不能更改前两项。</p>
+
+                <hr class="major" />
+                <h2>Set（集合）</h2>
+                <p>集合（set）是由一个或数个形态各异的大小整体组成的，构成集合的事物或对象称作元素或是成员。
+
+                    基本功能是进行成员关系测试和删除重复元素。
+
+                    可以使用大括号 { } 或者 set() 函数创建集合，注意：创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典。</p>
+                <img src="images/3/set.PNG">
+
+
+
+                <hr class="major" />
+                <h2>Dictionary（字典）</h2>
+                <p>列表是有序的对象集合，字典是无序的对象集合。两者之间的区别在于：字典当中的元素是通过键来存取的，而不是通过偏移存取。
+
+                    字典是一种映射类型，字典用"{ }"标识，它是一个无序的键(key) : 值(value)对集合。
+
+                    键(key)必须使用不可变类型。在同一个字典中，键(key)必须是唯一的。</p>
+                <p>字典的查找是比列表要快的。比如现在有这样两个列表：
+                <pre><code>namelist=['max','tom','jane','frank']
+IDlist2=['01','02','03','04']</code></pre>那么如果我们要查找max的ID就需要查找两个列表，这样导致效率不是很高。所以就有了字典的应用：<pre><code>IDdict={'max':01,'tom':02,'jane':03,'frank':04}</code></pre>
+                有了字典我们就可以只要查找一遍就可以。<pre><code>>>>IDdict['max']
+01</code></pre></p>
+
+
+                <p></p>
+
+                <hr class="major" />
+
+            </section>
+            <ul class="actions">
+                <li><a href="2.1.html" class="button">上一节</a></li>
+                <li><a href="3.2.html" class="button primary">下一节</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>目录选项</h2>
+                </header>
+                <ul>
+                    <li><span class="opener">Python基础</span>
+                        <ul>
+                            <li><a href="1.1.html">什么是Python</a></li>
+                            <li><a href="#">安装Python</a></li>
+                        </ul></li>
+                    <li><span class="opener">简单的开始</span>
+                        <ul>
+                            <li><a href="2.1.html">第一个程序</a></li>
+                        </ul></li>
+                    <li><span class="opener">简单语法基础</span>
+                        <ul>
+                            <li><a href="#">Python变量类型</a></li>
+                            <li><a href="3.2.html">切片</a></li>
+                            <li><a href="3.3.html">字典操作</a></li>
+                            <li><a href="3.4.html">运算符</a></li>
+                            <li><a href="3.5.html">if/else条件判断</a></li>
+                            <li><a href="3.6.html">循环语句</a></li>
+                            <li><a href="3.7.html">全局变量&局部变量</a></li>
+                        </ul></li>
+                    <li>
+                        <span class="opener">Python的函数</span>
+                        <ul>
+                            <li><a href="#">定义一个函数</a></li>
+                            <li><a href="#">函数调用</a></li>
+                            <li><a href="#">参数传递</a></li>
+                            <li><a href="#">匿名函数Lambda</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Python的模块</a></li>
+                    <li>
+                        <span class="opener">Python 文件读写</span>
+                        <ul>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">12</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="opener">面向对象</span>
+                        <ul>
+                            <li><a href="#">类Class</a></li>
+                            <li><a href="#">__init__</a></li>
+                            <li><a href="#">继承</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">continue&break</a></li>
+                    <li><a href="#">try&catch</a></li>
+                    <li>
+                        <span class="opener">内置函数</span>
+                        <ul>
+                            <li><a href="#">abs</a></li>
+                            <li><a href="#">oct</a></li>
+                            <li><a href="#">enumarate</a></li>
+                            <li><a href="#">bin</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">正则表达式</a></li>
+                    <li><a href="#">GUI</a></li>
+                    <li><a href="#">SMPT发送电子邮件</a></li>
+                    <li>
+                        <span class="opener">进程线程</span>
+                        <ul>
+                            <li><a href="#">多进程</a></li>
+                            <li><a href="#">多线程</a></li>
+                            <li><a href="#">模块</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="opener">简单算法题</span>
+                        <ul>
+                            <li><a href="#">list的应用</a></li>
+                            <li><a href="#">str的应用</a></li>
+                            <li><a href="#">字典</a></li>
+                            <li><a href="#">二叉树</a></li>
+                            <li><a href="#">链表</a></li>
+                            <li><a href="#">排序问题</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>杂文</h2>
+                </header>
+                <div class="mini-posts">
+                    <article>
+                        <a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+                        <p>123412431234123re aliquam.</p>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+                        <p>犯得上法发到付 m.</p>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+                        <p>12312435145146orper dolore aliquam.</p>
+                    </article>
+                </div>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </section>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>如果大家有什么建议或者建议请及时联系我我才能为大家做出更好的教程</p>
+                <ul class="contact">
+                    <li class="fa-envelope-o"><a href="#">zhihao8612@gmail.com</a></li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">&copy;2018 wzhMicro.github.io All rights reserved.</p>
+            </footer>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>
