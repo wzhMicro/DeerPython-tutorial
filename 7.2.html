@@ -30,32 +30,39 @@
             <!-- Content -->
             <section>
                 <header class="main">
-                    <h1>匿名函数Lambda</h1>
+                    <h1>__init__(双下划线)</h1>
                 </header>
-                <p>lambda的主体是一个表达式，而不是一个代码块。仅仅能在lambda表达式中封装有限的逻辑进去。有时候相比于def更加有效率。</p>
-                <p>同样是之前计算矩形的面积<pre><code>def Area(L,W):
-    area=L*W
-    print(area)</code></pre>
-                那现在改写成匿名函数就会简单很多。<strong>冒号<code>:</code>前面为定义的参数，后面为执行的运算。</strong><pre><code>Area=lambda L, W: L*W
 
->>>print("矩形面积为："Area(3,4))
-12
->>>print("矩形面积为："Area(6,9))
-54</code></pre></p>
                 <hr class="major" />
 
-                <h2>map</h2>
-                <p>map是将函数和参数结合的一个功能。比如我们需要计算一列数字的平方：</p>
-                <pre><code>def func(x):
-    return x*x
+                <h2>__init__</h2>
+                <p>__init__方法的第一个参数永远是self，self就指向创建的实例本身,因此，在__init__方法内部，
+                    就可以把各种属性绑定到self。还是上一节的例子：<pre><code>class Animal:
+number=3
+leg=4
+def __init__(self,number,leg,price):
+    self.number=number
+    self.leg=leg
+    self.price=price
 
->>>list(map(func,[1,2,3,4,5,6]))
-[1,4,9,16,25,36]</code></pre>
+>>>cat=Animal()
+>>>cat.number
+3
+>>>cat.leg
+4              #此时两个参数还是自己设置的
+>>>cat=Animal(9,3,12)
+>>>cat.number
+9
+>>>cat.leg
+3
+>>>cat.price
+12</code></pre>所以可以看到__init__将类本身的数值给改变了。</p>
+
 
             </section>
             <ul class="actions">
-                <li><a href="4.3.html" class="button">上一节</a></li>
-                <li><a href="5.1.html" class="button primary">下一节</a></li>
+                <li><a href="7.1.html" class="button">上一节</a></li>
+                <li><a href="7.3.html" class="button primary">下一节</a></li>
 
             </ul>
         </div>
@@ -98,7 +105,7 @@
                             <li><a href="4.1.html">定义一个函数</a></li>
                             <li><a href="4.2.html">函数调用</a></li>
                             <li><a href="4.3.html">参数传递</a></li>
-                            <li><a href="#">匿名函数Lambda&map</a></li>
+                            <li><a href="4.4.html">匿名函数Lambda&map</a></li>
                         </ul>
                     </li>
                     <li><a href="5.1.html">Python的模块</a></li>

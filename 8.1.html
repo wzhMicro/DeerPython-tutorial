@@ -30,32 +30,41 @@
             <!-- Content -->
             <section>
                 <header class="main">
-                    <h1>匿名函数Lambda</h1>
+                    <h1>continue&break</h1>
                 </header>
-                <p>lambda的主体是一个表达式，而不是一个代码块。仅仅能在lambda表达式中封装有限的逻辑进去。有时候相比于def更加有效率。</p>
-                <p>同样是之前计算矩形的面积<pre><code>def Area(L,W):
-    area=L*W
-    print(area)</code></pre>
-                那现在改写成匿名函数就会简单很多。<strong>冒号<code>:</code>前面为定义的参数，后面为执行的运算。</strong><pre><code>Area=lambda L, W: L*W
 
->>>print("矩形面积为："Area(3,4))
-12
->>>print("矩形面积为："Area(6,9))
-54</code></pre></p>
                 <hr class="major" />
 
-                <h2>map</h2>
-                <p>map是将函数和参数结合的一个功能。比如我们需要计算一列数字的平方：</p>
-                <pre><code>def func(x):
-    return x*x
+                <h2>break</h2>
+                <p><code>break</code>可以终止我们程序的循环，即使没有执行完程序。比如：
+                <pre><code>for i in range(10):
+    if i==5:
+        break
+    print('现在的数字是：',i)</code>执行后结果为<code>现在的数字是：0
+现在的数字是：1
+现在的数字是：2
+现在的数字是：3
+现在的数字是：4</code></pre></p>
+                <hr class="major" />
 
->>>list(map(func,[1,2,3,4,5,6]))
-[1,4,9,16,25,36]</code></pre>
-
+                <h2>continue</h2>
+                <p>continue和break不同的地方是，continue 语句跳出本次循环，而break跳出整个循环。还是来个例子来看看：
+                <pre><code>for i in range(10):
+    if i==5:
+        continue
+    print('现在的数字是：',i)</code>结果为：<code>现在的数字是：0
+现在的数字是：1
+现在的数字是：2
+现在的数字是：3
+现在的数字是：4
+现在的数字是：6
+现在的数字是：7
+现在的数字是：8
+现在的数字是：9</code></pre>可以看到，在等于5的时候就<strong>跳过</strong>了，并<strong>继续</strong>执行程序</p>
             </section>
             <ul class="actions">
-                <li><a href="4.3.html" class="button">上一节</a></li>
-                <li><a href="5.1.html" class="button primary">下一节</a></li>
+                <li><a href="7.3.html" class="button">上一节</a></li>
+                <li><a href="9.1.html" class="button primary">下一节</a></li>
 
             </ul>
         </div>
@@ -98,7 +107,7 @@
                             <li><a href="4.1.html">定义一个函数</a></li>
                             <li><a href="4.2.html">函数调用</a></li>
                             <li><a href="4.3.html">参数传递</a></li>
-                            <li><a href="#">匿名函数Lambda&map</a></li>
+                            <li><a href="4.4.html">匿名函数Lambda&map</a></li>
                         </ul>
                     </li>
                     <li><a href="5.1.html">Python的模块</a></li>
@@ -117,7 +126,7 @@
                             <li><a href="7.3.html">继承</a></li>
                         </ul>
                     </li>
-                    <li><a href="8.1.html">continue&break</a></li>
+                    <li><a href="#">continue&break</a></li>
                     <li><a href="9.1.html">错误处理机制</a></li>
                     <li>
                         <span class="opener">内置函数</span>

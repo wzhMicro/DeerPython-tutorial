@@ -30,32 +30,37 @@
             <!-- Content -->
             <section>
                 <header class="main">
-                    <h1>匿名函数Lambda</h1>
+                    <h1>错误处理机制</h1>
                 </header>
-                <p>lambda的主体是一个表达式，而不是一个代码块。仅仅能在lambda表达式中封装有限的逻辑进去。有时候相比于def更加有效率。</p>
-                <p>同样是之前计算矩形的面积<pre><code>def Area(L,W):
-    area=L*W
-    print(area)</code></pre>
-                那现在改写成匿名函数就会简单很多。<strong>冒号<code>:</code>前面为定义的参数，后面为执行的运算。</strong><pre><code>Area=lambda L, W: L*W
 
->>>print("矩形面积为："Area(3,4))
-12
->>>print("矩形面积为："Area(6,9))
-54</code></pre></p>
                 <hr class="major" />
 
-                <h2>map</h2>
-                <p>map是将函数和参数结合的一个功能。比如我们需要计算一列数字的平方：</p>
-                <pre><code>def func(x):
-    return x*x
+                <h2>try..   expect ..as..</h2>
+                <p>用来检测一段代码内出现的异常并将其归类输出相关信息。当有try时，遇到错误后续代码不会继续执行，而是直接跳转至错误处理代码，即except语句块，执行完except后，如果有finally语句块，则执行finally语句块</p>
+                
+                <p>先放个异常分类的图</p>
+                <img src="images/9/error.png">
+                <p>下面我们看看如何使用这张图<pre><code>try:
+    a=int(input('输入第一个数字：')
+    b=int(input('输入第二个数字：')
+    print(a/b)
+except ZeroDivisionError as err1：
+    print(err1)
+    print("第二个数不能为0")
+except ValueError as err2：
+    print("请输入有效的数字")</code>这样我们就写了一个简单的错误处理机制
+            <code>输入第一个数字：1
+输入第二个数字：0
+第二个数不能为0     # 捕捉到错误并输出
 
->>>list(map(func,[1,2,3,4,5,6]))
-[1,4,9,16,25,36]</code></pre>
-
+输入第一个数字：g
+请输入有效的数字     # 捕捉到错误并输出
+            </code></pre></p>
+                <p><strong>这样每次出错我们都会知道什么原因或者哪里出错，及时找到出错的源头。</strong></p>
             </section>
             <ul class="actions">
-                <li><a href="4.3.html" class="button">上一节</a></li>
-                <li><a href="5.1.html" class="button primary">下一节</a></li>
+                <li><a href="8.1.html" class="button">上一节</a></li>
+                <li><a href="10.1.html" class="button primary">下一节</a></li>
 
             </ul>
         </div>
@@ -98,7 +103,7 @@
                             <li><a href="4.1.html">定义一个函数</a></li>
                             <li><a href="4.2.html">函数调用</a></li>
                             <li><a href="4.3.html">参数传递</a></li>
-                            <li><a href="#">匿名函数Lambda&map</a></li>
+                            <li><a href="4.4.html">匿名函数Lambda&map</a></li>
                         </ul>
                     </li>
                     <li><a href="5.1.html">Python的模块</a></li>
@@ -118,7 +123,7 @@
                         </ul>
                     </li>
                     <li><a href="8.1.html">continue&break</a></li>
-                    <li><a href="9.1.html">错误处理机制</a></li>
+                    <li><a href="#">错误处理机制</a></li>
                     <li>
                         <span class="opener">内置函数</span>
                         <ul>

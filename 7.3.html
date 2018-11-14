@@ -30,32 +30,52 @@
             <!-- Content -->
             <section>
                 <header class="main">
-                    <h1>匿名函数Lambda</h1>
+                    <h1>继承</h1>
                 </header>
-                <p>lambda的主体是一个表达式，而不是一个代码块。仅仅能在lambda表达式中封装有限的逻辑进去。有时候相比于def更加有效率。</p>
-                <p>同样是之前计算矩形的面积<pre><code>def Area(L,W):
-    area=L*W
-    print(area)</code></pre>
-                那现在改写成匿名函数就会简单很多。<strong>冒号<code>:</code>前面为定义的参数，后面为执行的运算。</strong><pre><code>Area=lambda L, W: L*W
 
->>>print("矩形面积为："Area(3,4))
-12
->>>print("矩形面积为："Area(6,9))
-54</code></pre></p>
                 <hr class="major" />
 
-                <h2>map</h2>
-                <p>map是将函数和参数结合的一个功能。比如我们需要计算一列数字的平方：</p>
-                <pre><code>def func(x):
-    return x*x
+                <h2>继承</h2>
+                <p>面向对象中的继承和现实生活中的继承相同，即：子可以继承父的内容</p>
+                <pre>首先我们定义三个类。<code>class Animal:
+    def action(self):
+        print("Animal is eating!")
 
->>>list(map(func,[1,2,3,4,5,6]))
-[1,4,9,16,25,36]</code></pre>
+class Cat:
+    def action(self):
+    print("Animal is eating!")
+
+class Dog:
+    def action(self):
+    print("Animal is eating!")</code>我们可以发现，三个类但是方法都是一样的，那这样写即繁琐又复杂。那就来改写成继承的形式吧！
+                <code>class Animal:
+    def action(self):
+        print("Animal is eating!")
+
+class Cat(Animal):
+    pass
+
+class Dog:
+    pass</code>这样就好了，我们来试试运行。
+                <code>>>>cat=Cat()
+>>>cat.action()
+Animal is eating!</code>这样功能同样可以实现。这里Animal是Cat和Dog的父类，Cat和Dog是Animal的之类。那我们再将代码改成下面的形式：
+                <code>class Animal:
+    def action(self):
+        print("Animal is eating!")
+
+class Cat(Animal):
+    def action(self):
+        print("cat is eating!")
+
+>>>cat=Cat()
+>>>cat.action()
+cat is eating!</code>这就是继承的另一个好处。当子类有自己的函数时是可以将父类的给覆盖了，所以非常灵活。</pre>
 
             </section>
             <ul class="actions">
-                <li><a href="4.3.html" class="button">上一节</a></li>
-                <li><a href="5.1.html" class="button primary">下一节</a></li>
+                <li><a href="7.2.html" class="button">上一节</a></li>
+                <li><a href="8.1.html" class="button primary">下一节</a></li>
 
             </ul>
         </div>
@@ -98,7 +118,7 @@
                             <li><a href="4.1.html">定义一个函数</a></li>
                             <li><a href="4.2.html">函数调用</a></li>
                             <li><a href="4.3.html">参数传递</a></li>
-                            <li><a href="#">匿名函数Lambda&map</a></li>
+                            <li><a href="4.4.html">匿名函数Lambda&map</a></li>
                         </ul>
                     </li>
                     <li><a href="5.1.html">Python的模块</a></li>
