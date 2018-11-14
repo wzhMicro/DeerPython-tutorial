@@ -30,59 +30,35 @@
             <!-- Content -->
             <section>
                 <header class="main">
-                    <h1>循环语句</h1>
+                    <h1>定义一个函数</h1>
                 </header>
-                <p>Python中的循环语句有 for 和 while。</p>
-                <p>我们可以用IDE，脚本或者在cmd下进行Python的交互来进行操作。</p>
+                <p>我们现在有一个小功能需要重复使用，但是又不想一直复制代码,那这时候就可以利用函数来帮助我们了。
+                    函数就是可以提高我们的工作效率的一个代码模块。就好像一个箱子，我们把原材料放进这个箱子，这个内部会进行一系列的加工
+                ，然后我们可以得到一些相应的结果。这个‘箱子’就是所谓的函数。我们的任务就定义箱子内部的工作机制和调用这个箱子。</p>
+                <p>具体语法是这样：<pre><code>def do_something(参数):
+    主体</code></pre></p>
+                <p>如果在开发中想要一个函数，但是又不知道函数具体怎么写，那可以先写一个空函数，
+                    用<code>pass</code>先填补这个函数，等想好怎么写再去修改。像这样：</p>
+                <pre><code>def func():
+    pass</code></pre>
+                <p><code>pass</code>可以保证我们的程序里即使有空的函数也可以正常运行。</p>
                 <hr class="major" />
 
-                <h2>for 语句</h2>
-                <p>假设我们现在有一个列表<code>grades=[100,90,99,89,55,98,58]</code>.那么我们如果想要打印出所有的成绩就需要用到for了。</p>
-                <p><pre><code>for i in grades:
-            print(i)</code></pre>执行结果如下：</p>
-                <img src="images/3/forgrade.PNG">
-                <h2>range()</h2>
-                <p>那如果我们没有假设的列表，那我们如何打印0~10的数字呢。</p>
-                <p><pre><code>for i in range(11):
-                print(i)</code></pre>执行结果如下：</p>
-                <img src="images/3/range.PNG">
-                <hr class="major" />
-
-                <h2>while 语句</h2>
-                <p>while循环会一直循环知道条件不满足</p>
-                <p>还记得高斯如何计算0~100的和吗，现在我们不用高斯定理也能很快计算出结果。</p>
-                <p><pre><code>sum=0
-n=100
-counter = 1
-while counter <= n:
-            sum+=counter    #每次循环加上counter值
-            counter+=1      #counter自加
-print(sum)</code></pre>得到结果<code>5050</code></p>
-                <hr class="major" />
-
-                <h2>死循环</h2>
-                <p>有时候死循环也会非常有用，还记得上面成绩分类的例子吗，我们输入一个值按下回车，程序就结束了，那我们如何保持程序的运行来持续判断呢。
-                    只要将两个语句结合一下就可以了。</p>
-                <p><pre><code>n=1
-while n==1:
-    grades=int(input("输入一个数字："))
-
-    if grades>=80:
-        print("优秀")
-    elif 70<=grades<80:
-        print("普通")
-    elif 60<=grades<70:
-        print("及格")
-    else:
-        print("不及格")</code></pre></p>
-                <p>这样我们就可以不用每次都run一次程序了。(如果你在命令提示行下运行可以Ctrl+C来停止程序。如果是IDE中一般都会有停止按钮)</p><img src="images/3/keep.PNG">
+                <h2>定义一个显示文字的函数</h2>
+                <p>我们已经掌握了如何打印‘hello world!’,那我们现在就可以把这个语句封装到一个函数里，这样我们就可以调用这个函数了。</p>
+                <p><pre><code>def func():
+    print('Hello World!')
+    print('你好，世界！')</code></pre></p>
+                <p>这样我们就定义好这个函数了。</p>
+                <p>可是如果这样执行的话不会有任何效果显示出来，因为我们现在只是定义了一个函数，并没有去调用它。快开始下一节的内容来学习如何调用函数吧。</p>
 
                 <hr class="major" />
+
 
             </section>
             <ul class="actions">
-                <li><a href="3.5.html" class="button">上一节</a></li>
-                <li><a href="3.7.html" class="button primary">下一节</a></li>
+                <li><a href="3.7.html" class="button">上一节</a></li>
+                <li><a href="4.2.html" class="button primary">下一节</a></li>
 
             </ul>
         </div>
@@ -116,13 +92,13 @@ while n==1:
                             <li><a href="3.3.html">字典操作</a></li>
                             <li><a href="3.4.html">运算符</a></li>
                             <li><a href="3.5.html">if/else条件判断</a></li>
-                            <li><a href="#">循环语句</a></li>
+                            <li><a href="3.6.html">循环语句</a></li>
                             <li><a href="3.7.html">迭代器</a></li>
                         </ul></li>
                     <li>
                         <span class="opener">Python的函数</span>
                         <ul>
-                            <li><a href="4.1.html">定义一个函数</a></li>
+                            <li><a href="#">定义一个函数</a></li>
                             <li><a href="4.2.html">函数调用</a></li>
                             <li><a href="4.3.html">参数传递</a></li>
                             <li><a href="4.4.html">匿名函数Lambda&map</a></li>

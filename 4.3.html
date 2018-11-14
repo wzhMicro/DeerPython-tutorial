@@ -30,59 +30,70 @@
             <!-- Content -->
             <section>
                 <header class="main">
-                    <h1>循环语句</h1>
+                    <h1>参数的传递</h1>
                 </header>
-                <p>Python中的循环语句有 for 和 while。</p>
-                <p>我们可以用IDE，脚本或者在cmd下进行Python的交互来进行操作。</p>
+                <p>在每次调用函数时可能想用一些自己的变量去执行函数，那这些变量就是参数。</p>
+                <p>比如我想计算矩形的面积<pre><code>def Area(L,W):
+    area=L*W
+    print(area)
+
+>>>Area(3,4)
+12
+>>>Area(3,9)
+27</code></pre>
+                在这里矩形的长(L)和宽(W)就是这个函数的两个参数，在调用时输入不同的参数就会有不同的结果。</p>
                 <hr class="major" />
 
-                <h2>for 语句</h2>
-                <p>假设我们现在有一个列表<code>grades=[100,90,99,89,55,98,58]</code>.那么我们如果想要打印出所有的成绩就需要用到for了。</p>
-                <p><pre><code>for i in grades:
-            print(i)</code></pre>执行结果如下：</p>
-                <img src="images/3/forgrade.PNG">
-                <h2>range()</h2>
-                <p>那如果我们没有假设的列表，那我们如何打印0~10的数字呢。</p>
-                <p><pre><code>for i in range(11):
-                print(i)</code></pre>执行结果如下：</p>
-                <img src="images/3/range.PNG">
+                <h2>默认参数</h2>
+                <p>调用函数时，如果没有传递参数，则会使用默认参数。以下实例中如果没有传入 age 参数，则使用默认值，比如：</p>
+                <pre><code>def grade(name, score, class='class 1'):
+    print("名字:",name)
+    print("成绩:",score)
+    print("班级:",class)
+
+>>>grade(name='max',score=90,class='class 2')
+名字:max
+成绩:90
+班级:class 2
+>>>grade(name='sam',score=88)
+名字:sam
+成绩:88
+班级:class 1</code></pre>
                 <hr class="major" />
 
-                <h2>while 语句</h2>
-                <p>while循环会一直循环知道条件不满足</p>
-                <p>还记得高斯如何计算0~100的和吗，现在我们不用高斯定理也能很快计算出结果。</p>
-                <p><pre><code>sum=0
-n=100
-counter = 1
-while counter <= n:
-            sum+=counter    #每次循环加上counter值
-            counter+=1      #counter自加
-print(sum)</code></pre>得到结果<code>5050</code></p>
+                <h2>可变参数(一个<code>*</code>实现)</h2>
+                <p>上面的例子都是一个参数传入了一个值，Python其实允许我们在一个参数传入多个参数。
+                    通常我们可以以List或者Tuple的形式，但是可变参数写起来明显更加简洁。</p>
+                <pre><code>def func(*number):
+    sum=0
+    for i in number:
+        sum+=i
+    print(sum)</code></pre>
+                <p>这个程序允许我们计算传入的数字之和。<pre><code>>>>func(10,2)
+12
+>>>func(10)
+10
+>>>func()
+0</code></pre></p>
                 <hr class="major" />
+                <h2>关键字参数(<code>**</code>实现)</h2>
+                <p>可变参数可以让我们传入0或者多个参数，那么关键字参数是可以传入0个或任意个含参数名的参数。关键字是以字典方式实现。</p>
+                <pre><code>def func(name,**score):
+    print('name:', name, 'score:', score)
 
-                <h2>死循环</h2>
-                <p>有时候死循环也会非常有用，还记得上面成绩分类的例子吗，我们输入一个值按下回车，程序就结束了，那我们如何保持程序的运行来持续判断呢。
-                    只要将两个语句结合一下就可以了。</p>
-                <p><pre><code>n=1
-while n==1:
-    grades=int(input("输入一个数字："))
-
-    if grades>=80:
-        print("优秀")
-    elif 70<=grades<80:
-        print("普通")
-    elif 60<=grades<70:
-        print("及格")
-    else:
-        print("不及格")</code></pre></p>
-                <p>这样我们就可以不用每次都run一次程序了。(如果你在命令提示行下运行可以Ctrl+C来停止程序。如果是IDE中一般都会有停止按钮)</p><img src="images/3/keep.PNG">
-
+>>>func(max)
+name: max score: {}
+>>>func(max,test1=90,test2=79)
+name: max score:{'test1':90,'test2':79}</code></pre>
+                <p>关键字参数使我们的函数变得更加灵活，因为我们有了更多的'选填项'。</p>
                 <hr class="major" />
-
+                <p><strong>注意：</strong>可变参数和关键字参数要写到默认参数前面，否则会被一起操作。
+                <pre><code>def dunc(*kw, name, grades)        # 这种定义方法是错误的，name和grades会被吞噬
+def func(name,grades, *kw)        # 应该改写成这样</code></pre></p>
             </section>
             <ul class="actions">
-                <li><a href="3.5.html" class="button">上一节</a></li>
-                <li><a href="3.7.html" class="button primary">下一节</a></li>
+                <li><a href="4.2.html" class="button">上一节</a></li>
+                <li><a href="4.4.html" class="button primary">下一节</a></li>
 
             </ul>
         </div>
@@ -116,7 +127,7 @@ while n==1:
                             <li><a href="3.3.html">字典操作</a></li>
                             <li><a href="3.4.html">运算符</a></li>
                             <li><a href="3.5.html">if/else条件判断</a></li>
-                            <li><a href="#">循环语句</a></li>
+                            <li><a href="3.6.html">循环语句</a></li>
                             <li><a href="3.7.html">迭代器</a></li>
                         </ul></li>
                     <li>
@@ -124,7 +135,7 @@ while n==1:
                         <ul>
                             <li><a href="4.1.html">定义一个函数</a></li>
                             <li><a href="4.2.html">函数调用</a></li>
-                            <li><a href="4.3.html">参数传递</a></li>
+                            <li><a href="#">参数传递</a></li>
                             <li><a href="4.4.html">匿名函数Lambda&map</a></li>
                         </ul>
                     </li>

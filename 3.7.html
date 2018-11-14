@@ -30,54 +30,82 @@
             <!-- Content -->
             <section>
                 <header class="main">
-                    <h1>第一个程序</h1>
+                    <h1>迭代器</h1>
                 </header>
-                <p>当然是以Hello World！来开始了。</p>
-                <p>我们可以用IDE，脚本或者在cmd下进行Python的交互来进行操作。</p>
+                <p>迭代是是访问集合元素的一种方式。</p>
+                <p>我们可以用IDE，脚本或者在cmd下进行Python的交互来进行操作。只能往前不会后退。
+                    迭代器有两个基本的方法：iter() 和 next()</p>
                 <hr class="major" />
 
-                <h2>交互式编程(调试Python代码用)</h2>
-                <p>按 Win+R 键，输入 cmd 调出命令提示符，输入 python敲回车。</p>
-                <p>输入print('Hello World!')</p>
-                <img src="images/2/cmdhw.PNG">
-                <hr class="major" />
-
-                <h2>脚本式编程</h2>
-                <p>由于我们在写代码时需要不断更改，所以我们需要更加灵活的方式。</p>
-                <p>创建一个文件，命名为python.py</p><img src="images/2/jiaoben.PNG">
-                <p>由于我是有IDE的所以如果长得不一样也没关系。</p>
-                <p>右键用记事本打开该文件，并输入  print('Hello World!')   保存</p>
-                <p>在命令提示行下跳转至python.exe文件的路径下，并输入python python.py</p>
-                <img src="images/2/jiaobenhw.PNG">
-                <hr class="major" />
-
-                <h2>利用IDE进行编程(推荐)</h2>
-                <p>目前有许多不同的软件编辑器可以使用：<a href="https://www.sublimetext.com/3"target="view_window">Sublime Text(免费)</a>, <a href="https://www.jetbrains.com/pycharm/" target="view_window">PyCharm(学生免费)</a>, <a href="https://notepad-plus-plus.org/download/v7.5.9.html"target="view_window">NotePad++(免费)</a>.都可以使用，我用过前两个感觉Sublime更加轻便些，不过之后用过PyCharm后还是更喜欢PyCharme.本教程也会以PyCharm为主。</p>
-                <img src="images/2/ide.PNG"><img src="images/2/notepae.jpg">
+                <h2>为什么使用迭代器</h2>
+                <p>假设你现在有一个列表来装下100000000个元素，这样会花费你很多内存。但是迭代器就可以很好解决这个问题。迭代器使用延迟计算方式返回元素，
+                    它并没有把所有元素装载到内存中，而是等到调用 next 方法时候才返回该元素。所以迭代器只需要很小的内存占用。</p>
+                <p><pre><code>>>>list=[1,2,3,4,5]
+>>>a=iter(list)      #创建迭代器
+>>>print(next(a))
+1
+>>>print(next(a))
+2</code></pre></p>
 
                 <hr class="major" />
-                <h2>利用IDE进行编程(推荐)</h2>
-                <p>目前有许多不同的软件编辑器可以使用：<a href="https://www.sublimetext.com/3"target="view_window">Sublime Text(免费)</a>, <a href="https://www.jetbrains.com/pycharm/" target="view_window">PyCharm(学生免费)</a>, <a href="https://notepad-plus-plus.org/download/v7.5.9.html"target="view_window">NotePad++(免费)</a>.都可以使用，我用过前两个感觉Sublime更加轻便些，不过之后用过PyCharm后还是更喜欢PyCharme.本教程也会以PyCharm为主。</p>
-                <img src="images/2/ide.PNG"><img src="images/2/notepae.jpg">
 
-                <hr class="major" />
-                <h2>PyCharm的配置</h2>
-                <p>我们需要将IDE的解释器和我们安装的Python连接才可以正常使用。</p>
-                <p>打开设置</p>
-                <img src="images/2/inter.PNG">
-                <p>在解释器一项中将路径设置为之前安装Python的路径./python.exe。</p>
-                <p>图中用蓝色圈出的绿色加号是引入模块用的。</p>
-                <img src="images/2/inter2.PNG">
+                <h2>例子————迭代器生成斐波那契数列</h2>
+                <p><pre><code>class Fib:
+    def __init__(self,n):
+        self.prev=0
+        self.cur=1
+        self.n=n
+
+    def__iter__(self):
+        return self
+
+    def __next__(self):
+        if self.n > 0:
+            value=self.cur
+            self.cur=self.cur+self.prev
+            self.prev=value
+            self.n-=1
+            return value
+        else:
+                raise StopIteration()    # 抛出StopIteration()停止循环
+
+f=Fib(10)
+print([i for i in f])
+
+# [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+            </code></pre></p>
+                <p>所以，迭代器就像挤牙膏一样，只有去挤才会出来一截，没有挤的时候就处于休眠等待调用。</p>
                 <hr class="major" />
 
-                <h2>PyCharm下编译</h2>
-                <p>在新建的Project内创建一个Python的文件就可以开始练习了。</p>
-                <p>输入相应的内容，右键RUN。</p>
-                <img src="images/2/run.PNG">
-                <p>之后就可以看到结果了。</p>
-                <img src="images/2/runresult.PNG">
+                <h2>生成器</h2>
+                <p>生成器和迭代器十分相似。其实生成器也是一种迭代器，但是生成器更加简洁和优雅。</p>
+                <p>生成器会用到一个<code>yiled</code>关键字</p>
+
+                <h4>生成器实现斐波那契</h4>
+                <p><pre><code>def fib():
+    prev, curr = 0, 1
+    while True:
+        yield curr
+        prev, curr = curr, curr + prev
+
+f = fib(10)
+print([i for i in f])
+            </code></pre></p>
+                <p>所以看到了吧，生成器和迭代器一样高效，而且更加简洁。</p>
                 <hr class="major" />
-                <h2>其他软件也需要配置相应环境，具体网上有很多教程，我就不细说了。</h2>
+
+                <h3>自我检测</h3>
+                <p>我有一个函数用来生成一个数组，将它改成生成器的形式吧</p>
+                <p><pre><code>def fun():
+    res=[]
+    for i in range(10):
+        res.append(i)
+    return res</code></pre></p>
+                <p>答案
+                    <pre><code>def fun():
+    for i in range(10):
+        yield res</code></pre>
+                </p>
             </section>
             <ul class="actions">
                 <li><a href="3.6.html" class="button">上一节</a></li>
@@ -102,7 +130,7 @@
                     <li><span class="opener">Python基础</span>
                         <ul>
                             <li><a href="1.1.html">什么是Python</a></li>
-                            <li><a href="#">安装Python</a></li>
+                            <li><a href="1.2.html">安装Python</a></li>
                         </ul></li>
                     <li><span class="opener">简单的开始</span>
                         <ul>
@@ -116,23 +144,23 @@
                             <li><a href="3.4.html">运算符</a></li>
                             <li><a href="3.5.html">if/else条件判断</a></li>
                             <li><a href="3.6.html">循环语句</a></li>
-                            <li><a href="#">全局变量&局部变量</a></li>
+                            <li><a href="#">迭代器</a></li>
                         </ul></li>
                     <li>
                         <span class="opener">Python的函数</span>
                         <ul>
-                            <li><a href="#">定义一个函数</a></li>
-                            <li><a href="#">函数调用</a></li>
-                            <li><a href="#">参数传递</a></li>
-                            <li><a href="#">匿名函数Lambda</a></li>
+                            <li><a href="4.1.html">定义一个函数</a></li>
+                            <li><a href="4.2.html">函数调用</a></li>
+                            <li><a href="4.3.html">参数传递</a></li>
+                            <li><a href="4.4.html">匿名函数Lambda&map</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Python的模块</a></li>
+                    <li><a href="5.1.html">Python的模块</a></li>
                     <li>
                         <span class="opener">Python 文件读写</span>
                         <ul>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">12</a></li>
+                            <li><a href="#">读</a></li>
+                            <li><a href="#">写</a></li>
                         </ul>
                     </li>
                     <li>

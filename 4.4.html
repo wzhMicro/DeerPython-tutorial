@@ -30,59 +30,32 @@
             <!-- Content -->
             <section>
                 <header class="main">
-                    <h1>循环语句</h1>
+                    <h1>匿名函数Lambda</h1>
                 </header>
-                <p>Python中的循环语句有 for 和 while。</p>
-                <p>我们可以用IDE，脚本或者在cmd下进行Python的交互来进行操作。</p>
+                <p>lambda的主体是一个表达式，而不是一个代码块。仅仅能在lambda表达式中封装有限的逻辑进去。有时候相比于def更加有效率。</p>
+                <p>同样是之前计算矩形的面积<pre><code>def Area(L,W):
+    area=L*W
+    print(area)</code></pre>
+                那现在改写成匿名函数就会简单很多。<strong>冒号<code>:</code>前面为定义的参数，后面为执行的运算。</strong><pre><code>Area=lambda L, W: L*W
+
+>>>print("矩形面积为："Area(3,4))
+12
+>>>print("矩形面积为："Area(6,9))
+54</code></pre></p>
                 <hr class="major" />
 
-                <h2>for 语句</h2>
-                <p>假设我们现在有一个列表<code>grades=[100,90,99,89,55,98,58]</code>.那么我们如果想要打印出所有的成绩就需要用到for了。</p>
-                <p><pre><code>for i in grades:
-            print(i)</code></pre>执行结果如下：</p>
-                <img src="images/3/forgrade.PNG">
-                <h2>range()</h2>
-                <p>那如果我们没有假设的列表，那我们如何打印0~10的数字呢。</p>
-                <p><pre><code>for i in range(11):
-                print(i)</code></pre>执行结果如下：</p>
-                <img src="images/3/range.PNG">
-                <hr class="major" />
+                <h2>map</h2>
+                <p>map是将函数和参数结合的一个功能。比如我们需要计算一列数字的平方：</p>
+                <pre><code>def func(x):
+    return x*x
 
-                <h2>while 语句</h2>
-                <p>while循环会一直循环知道条件不满足</p>
-                <p>还记得高斯如何计算0~100的和吗，现在我们不用高斯定理也能很快计算出结果。</p>
-                <p><pre><code>sum=0
-n=100
-counter = 1
-while counter <= n:
-            sum+=counter    #每次循环加上counter值
-            counter+=1      #counter自加
-print(sum)</code></pre>得到结果<code>5050</code></p>
-                <hr class="major" />
-
-                <h2>死循环</h2>
-                <p>有时候死循环也会非常有用，还记得上面成绩分类的例子吗，我们输入一个值按下回车，程序就结束了，那我们如何保持程序的运行来持续判断呢。
-                    只要将两个语句结合一下就可以了。</p>
-                <p><pre><code>n=1
-while n==1:
-    grades=int(input("输入一个数字："))
-
-    if grades>=80:
-        print("优秀")
-    elif 70<=grades<80:
-        print("普通")
-    elif 60<=grades<70:
-        print("及格")
-    else:
-        print("不及格")</code></pre></p>
-                <p>这样我们就可以不用每次都run一次程序了。(如果你在命令提示行下运行可以Ctrl+C来停止程序。如果是IDE中一般都会有停止按钮)</p><img src="images/3/keep.PNG">
-
-                <hr class="major" />
+>>>list(map(func,[1,2,3,4,5,6]))
+[1,4,9,16,25,36]</code></pre>
 
             </section>
             <ul class="actions">
-                <li><a href="3.5.html" class="button">上一节</a></li>
-                <li><a href="3.7.html" class="button primary">下一节</a></li>
+                <li><a href="4.3.html" class="button">上一节</a></li>
+                <li><a href="5.1.html" class="button primary">下一节</a></li>
 
             </ul>
         </div>
@@ -116,7 +89,7 @@ while n==1:
                             <li><a href="3.3.html">字典操作</a></li>
                             <li><a href="3.4.html">运算符</a></li>
                             <li><a href="3.5.html">if/else条件判断</a></li>
-                            <li><a href="#">循环语句</a></li>
+                            <li><a href="3.6.html">循环语句</a></li>
                             <li><a href="3.7.html">迭代器</a></li>
                         </ul></li>
                     <li>
@@ -125,7 +98,7 @@ while n==1:
                             <li><a href="4.1.html">定义一个函数</a></li>
                             <li><a href="4.2.html">函数调用</a></li>
                             <li><a href="4.3.html">参数传递</a></li>
-                            <li><a href="4.4.html">匿名函数Lambda&map</a></li>
+                            <li><a href="#">匿名函数Lambda&map</a></li>
                         </ul>
                     </li>
                     <li><a href="5.1.html">Python的模块</a></li>

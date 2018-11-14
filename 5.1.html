@@ -30,59 +30,60 @@
             <!-- Content -->
             <section>
                 <header class="main">
-                    <h1>循环语句</h1>
+                    <h1>模块</h1>
                 </header>
-                <p>Python中的循环语句有 for 和 while。</p>
-                <p>我们可以用IDE，脚本或者在cmd下进行Python的交互来进行操作。</p>
+                <p>简单来讲，模块就是一个.py文件，为了更方便编程，引用模块什么有效。</p>
+                <p><pre><code>import numpy      #引用numpy 模块
+import numpy as np   #引用numpy并命名为np
+from math import sqrt    #只引用math中的sqrt部分
+            </code></pre>
+                </p>
                 <hr class="major" />
 
-                <h2>for 语句</h2>
-                <p>假设我们现在有一个列表<code>grades=[100,90,99,89,55,98,58]</code>.那么我们如果想要打印出所有的成绩就需要用到for了。</p>
-                <p><pre><code>for i in grades:
-            print(i)</code></pre>执行结果如下：</p>
-                <img src="images/3/forgrade.PNG">
-                <h2>range()</h2>
-                <p>那如果我们没有假设的列表，那我们如何打印0~10的数字呢。</p>
-                <p><pre><code>for i in range(11):
-                print(i)</code></pre>执行结果如下：</p>
-                <img src="images/3/range.PNG">
-                <hr class="major" />
+                <h2>__main__</h2>
+                <p>当一个模块被另一个模块引用时，我们不希望全部功能都执行，那<code>__main__</code>就可以派上用场了，也许这样说有点抽象，那我们看一个例子：
+                <pre><strong>rectangle.py</strong><code>      # rectangle.py用来存放长和宽
+L,W=3,4
+def main():
+    print("长和宽为：",L,W)
+mian()
 
-                <h2>while 语句</h2>
-                <p>while循环会一直循环知道条件不满足</p>
-                <p>还记得高斯如何计算0~100的和吗，现在我们不用高斯定理也能很快计算出结果。</p>
-                <p><pre><code>sum=0
-n=100
-counter = 1
-while counter <= n:
-            sum+=counter    #每次循环加上counter值
-            counter+=1      #counter自加
-print(sum)</code></pre>得到结果<code>5050</code></p>
-                <hr class="major" />
+      # 如果执行rectangle.py 会得到：  长和宽为：3  4</code></pre>
 
-                <h2>死循环</h2>
-                <p>有时候死循环也会非常有用，还记得上面成绩分类的例子吗，我们输入一个值按下回车，程序就结束了，那我们如何保持程序的运行来持续判断呢。
-                    只要将两个语句结合一下就可以了。</p>
-                <p><pre><code>n=1
-while n==1:
-    grades=int(input("输入一个数字："))
+<pre><strong>Area.py</strong><code>      #Area.py来计算矩形的面积
+import rectangle
+def area():
+    return L*W
+def main():
+    print("矩形面积为：",area())
 
-    if grades>=80:
-        print("优秀")
-    elif 70<=grades<80:
-        print("普通")
-    elif 60<=grades<70:
-        print("及格")
-    else:
-        print("不及格")</code></pre></p>
-                <p>这样我们就可以不用每次都run一次程序了。(如果你在命令提示行下运行可以Ctrl+C来停止程序。如果是IDE中一般都会有停止按钮)</p><img src="images/3/keep.PNG">
+main()
+
+      # 如果执行rectangle.py 会得到：
+长和宽为：3  4
+矩形面积为：12</code>我们发现在执行Area.py文件时由于引用了rectangle.py文件，所以将rectangle.py内的main()也一起执行了。
+但是我们只想得到第二个文件的main()该怎么办呢。只需要改一下rectangle.py即可：</pre>
+                <pre><code>      # rectangle.py用来存放长和宽
+L,W=3,4
+def main():
+    print("长和宽为：",L,W)
+
+if __name__ == "__main__":
+    main()</code></pre>现在再执行Area.py就会得到<code>矩形面积为：12</code></p>
+                <p>所以__main__就是限定模块中一些功能只有在模块作为主程序运行时才会被运行。</p>
 
                 <hr class="major" />
 
+                <h2>安装模块</h2>
+                <p>通常Windows上安装是通过pip安装，按win+R输入cmd进入命令提示行，直接输入<pre><code>pip install 模块名    # python2
+pip3 install 模块名    # python3</code></pre>
+                即可。</p>
+                <p>如果你是自己在IDE中安装，还记不记得安装PyCham时配置环境的时候有个绿色的<code>+</code>,点击后直接搜索需要的模块安装就可以了。</p>
+                <img src="images/2/inter.PNG"><img src="images/2/inter2.PNG">
             </section>
             <ul class="actions">
-                <li><a href="3.5.html" class="button">上一节</a></li>
-                <li><a href="3.7.html" class="button primary">下一节</a></li>
+                <li><a href="4.4.html" class="button">上一节</a></li>
+                <li><a href="6.1.html" class="button primary">下一节</a></li>
 
             </ul>
         </div>
@@ -116,7 +117,7 @@ while n==1:
                             <li><a href="3.3.html">字典操作</a></li>
                             <li><a href="3.4.html">运算符</a></li>
                             <li><a href="3.5.html">if/else条件判断</a></li>
-                            <li><a href="#">循环语句</a></li>
+                            <li><a href="3.6.html">循环语句</a></li>
                             <li><a href="3.7.html">迭代器</a></li>
                         </ul></li>
                     <li>
@@ -128,12 +129,12 @@ while n==1:
                             <li><a href="4.4.html">匿名函数Lambda&map</a></li>
                         </ul>
                     </li>
-                    <li><a href="5.1.html">Python的模块</a></li>
+                    <li><a href="#">Python的模块</a></li>
                     <li>
                         <span class="opener">Python 文件读写</span>
                         <ul>
-                            <li><a href="#">读</a></li>
-                            <li><a href="#">写</a></li>
+                            <li><a href="6.1.html">读</a></li>
+                            <li><a href="6.2.html">写</a></li>
                         </ul>
                     </li>
                     <li>
