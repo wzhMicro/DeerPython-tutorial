@@ -36,7 +36,20 @@
                 <hr class="major" />
 
                 <h2>abs</h2>
-                <p></p>
+                <p>这是用来求绝对值的函数。可以是整数，浮点数，复数</p>
+                <pre><code>>>>abs(-100)
+100
+>>>abs(100.10)
+100.1</code></pre>
+                <hr class="major" />
+                <h2>fabs</h2>
+                <p>fabs和abs一样都是返回绝对值，但是有些不同：
+                <ul><li><code>abs()</code>是内置的函数，而<code>fabs()</code>是math模块内定义的。</li>
+            <li>fabs() 函数只适用于 float 和 integer 类型，而 abs() 也适用于复数</li></ul></p>
+                <pre><code>>>>import math
+>>>math.fabs(-100)
+100
+                    100.1</code></pre>
 
 
             </section>
@@ -109,13 +122,13 @@
                     <li>
                         <span class="opener">内置函数</span>
                         <ul>
-                            <li><a href="#">abs</a></li>
-                            <li><a href="10.2.html">oct</a></li>
+                            <li><a href="#">abs&fabs</a></li>
+                            <li><a href="10.2.html">len</a></li>
                             <li><a href="10.3.html">enumarate</a></li>
-                            <li><a href="10.4.html">bin</a></li>
+                            <li><a href="10.4.html">bin&int&oct&hex</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">正则表达式</a></li>
+                    <li><a href="11.1.html">正则表达式</a></li>
                     <li><a href="#">GUI</a></li>
                     <li><a href="#">SMPT发送电子邮件</a></li>
                     <li>

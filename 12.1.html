@@ -30,53 +30,47 @@
             <!-- Content -->
             <section>
                 <header class="main">
-                    <h1>If/Else条件判断</h1>
+                    <h1>GUI</h1>
                 </header>
-                <p>在一个编程语言中，”控制流”(判断语句)是必要的。if – elif – else是Python中的判断语句。</p>
-                <p><pre><code>if 条件1：
-            语句1
-elif 条件2：
-            语句2
-else：
-            语句3</code></pre></p>
-                <p><ul>
-                <li>如果条件1为True则执行语句1.</li>
-                <li>如果条件1为False将判断条件2.</li>
-                <li>如果条件2为True则执行语句2.</li>
-                <li>如果条件2为False则执行语句3.</li>
-            </ul></p>
+                <h3>Python提供了许多内置函数，这里我将讲几个我自己用的比较多次的函数，如有需要我后期会做补充。</h3>
                 <hr class="major" />
 
-                <h2>示例</h2>
-                <p>下面我们来看一个简单的例子来了解if – elif – else。假设成绩在80以上为优秀，70~79为普通，60~69为及格,其余为不及格。我们来判断学生成绩的等级。</p>
-                <p><pre><code>grades=int(input("输入一个数字："))
-
-if grades>=80:
-                print("优秀")
-elif 70<=grades<80:
-                print("普通")
-elif 60<=grades<70:
-                print("及格")
-else:
-                print("不及格")</code></pre></p>
-                <img src="images/3/77.PNG">    <img src="images/3/92.PNG">    <img src="images/3/56.PNG">
-                <p>这样我们就完成了简单的判断语句，你也可以更改程序将之变成一个猜数字的小游戏。动手试试吧。</p>
+                <h2>int</h2>
+                <p>将一个字符串或数字转换为整型。<code>int(x, base=10)</code>.第一个数是要转换的参数，第二个数是代表你需要的转换的内容是几进制。</p>
+                <pre><code>>>>int(2.4)
+                    # 2
+                    >>>int('77')   # 77为字符串
+                    # 77
+                    >>>int(0xa,16)   # 0xa是16进制
+                    10</code></pre>
                 <hr class="major" />
 
-                <h2>注意事项</h2>
-                <p>每个条件后面要使用冒号 :，表示接下来是满足条件后要执行的语句块。</p>
-                <p>Python是很对缩进敏感的，所以要注意编写的逻辑。</p>
-
-                <p>if 语句还可以简写，比如：</p>
-                <p><pre><code>>>>if x:
->>>    print("True")</code></pre>只要x是非零数值、非空字符串、非空list等，就判断为True，否则为False.</p>
+                <h2>bin</h2>
+                <p>返回一个十进制数字的二进制表示,并且是以字符串形式返回。</p>
+                <pre><code>>>>bin(20)
+                    # '0b10100'</code></pre>
                 <hr class="major" />
+
+                <h2>oct</h2>
+                <p>返回一个十进制数字的八进制表示,并且是以字符串形式返回。</p>
+                <pre><code>>>>oct(10)
+                    # '012'
+                    >>> oct(20)
+                    # '024'</code></pre>
+                <hr class="major" />
+
+                <h2>hex</h2>
+                <p>返回一个十进制数字的十六进制表示,并且是以字符串形式返回。</p>
+                <pre><code>>>>hex(1L)
+                    # '0x1L'
+                    >>> hex(12)
+                    # '0xc'</code></pre>
 
 
             </section>
             <ul class="actions">
-                <li><a href="3.4.html" class="button">上一节</a></li>
-                <li><a href="3.6.html" class="button primary">下一节</a></li>
+                <li><a href="10.3.html" class="button">上一节</a></li>
+                <li><a href="11.1.html" class="button primary">下一节</a></li>
 
             </ul>
         </div>
@@ -109,7 +103,7 @@ else:
                             <li><a href="3.2.html">切片</a></li>
                             <li><a href="3.3.html">字典操作</a></li>
                             <li><a href="3.4.html">运算符</a></li>
-                            <li><a href="#">if/else条件判断</a></li>
+                            <li><a href="3.5.html">if/else条件判断</a></li>
                             <li><a href="3.6.html">循环语句</a></li>
                             <li><a href="3.7.html">迭代器</a></li>
                         </ul></li>
@@ -146,7 +140,7 @@ else:
                             <li><a href="10.1.html">abs&fabs</a></li>
                             <li><a href="10.2.html">len&max&min</a></li>
                             <li><a href="10.3.html">enumarate</a></li>
-                            <li><a href="10.4.html">bin&int&oct&hex</a></li>
+                            <li><a href="#">bin&int&oct&hex</a></li>
                         </ul>
                     </li>
                     <li><a href="11.1.html">正则表达式</a></li>

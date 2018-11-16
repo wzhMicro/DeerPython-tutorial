@@ -1,10 +1,224 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+<head>
+    <title>Deer Python</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="shortcut icon"  href="images/favicon.ico" type="image/x-icon" />
 </head>
-<body>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <p class="logo"><a href="index.html"><strong>Deer</strong>—Python</a></p>
+                <ul class="icons">
+                    <li><a href="https://space.bilibili.com/379211059/#/" ><span class="label"><img src="images/bilibili.png"></span></a></li>
+                    <li><a href="https://github.com/wzhMicro" class="icon fa-github"><span class="label">Github</span></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCN9JQUexZdUEAqJ-pylMTLg?view_as=subscriber" class="icon fa-youtube"><span class="label">Youtube</span></a></li>
+                </ul>
+            </header>
+
+            <!-- Content -->
+            <section>
+                <header class="main">
+                    <h1>内置函数</h1>
+                </header>
+                <h3>Python提供了许多内置函数，这里我将讲几个我自己用的比较多次的函数，如有需要我后期会做补充。</h3>
+                <hr class="major" />
+
+                <h2>int</h2>
+                <p>将一个字符串或数字转换为整型。<code>int(x, base=10)</code>.第一个数是要转换的参数，第二个数是代表你需要的转换的内容是几进制。</p>
+                <pre><code>>>>int(2.4)
+# 2
+>>>int('77')   # 77为字符串
+# 77
+>>>int(0xa,16)   # 0xa是16进制
+10</code></pre>
+                <hr class="major" />
+
+                <h2>bin</h2>
+                <p>返回一个十进制数字的二进制表示,并且是以字符串形式返回。</p>
+                <pre><code>>>>bin(20)
+# '0b10100'</code></pre>
+                <hr class="major" />
+
+                <h2>oct</h2>
+                <p>返回一个十进制数字的八进制表示,并且是以字符串形式返回。</p>
+                <pre><code>>>>oct(10)
+# '012'
+>>> oct(20)
+# '024'</code></pre>
+                <hr class="major" />
+
+                <h2>hex</h2>
+                <p>返回一个十进制数字的十六进制表示,并且是以字符串形式返回。</p>
+                <pre><code>>>>hex(1L)
+# '0x1L'
+>>> hex(12)
+# '0xc'</code></pre>
+
+
+            </section>
+            <ul class="actions">
+                <li><a href="10.3.html" class="button">上一节</a></li>
+                <li><a href="11.1.html" class="button primary">下一节</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>目录选项</h2>
+                </header>
+                <ul>
+                    <li><span class="opener">Python基础</span>
+                        <ul>
+                            <li><a href="1.1.html">什么是Python</a></li>
+                            <li><a href="1.2.html">安装Python</a></li>
+                        </ul></li>
+                    <li><span class="opener">简单的开始</span>
+                        <ul>
+                            <li><a href="2.1.html">第一个程序</a></li>
+                        </ul></li>
+                    <li><span class="opener">简单语法基础</span>
+                        <ul>
+                            <li><a href="3.1.html">Python变量类型</a></li>
+                            <li><a href="3.2.html">切片</a></li>
+                            <li><a href="3.3.html">字典操作</a></li>
+                            <li><a href="3.4.html">运算符</a></li>
+                            <li><a href="3.5.html">if/else条件判断</a></li>
+                            <li><a href="3.6.html">循环语句</a></li>
+                            <li><a href="3.7.html">迭代器</a></li>
+                        </ul></li>
+                    <li>
+                        <span class="opener">Python的函数</span>
+                        <ul>
+                            <li><a href="4.1.html">定义一个函数</a></li>
+                            <li><a href="4.2.html">函数调用</a></li>
+                            <li><a href="4.3.html">参数传递</a></li>
+                            <li><a href="4.4.html">匿名函数Lambda&map</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="5.1.html">Python的模块</a></li>
+                    <li>
+                        <span class="opener">Python 文件读写</span>
+                        <ul>
+                            <li><a href="6.1.html">读</a></li>
+                            <li><a href="6.2.html">写</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="opener">面向对象</span>
+                        <ul>
+                            <li><a href="7.1.html">类Class</a></li>
+                            <li><a href="7.2.html">__init__</a></li>
+                            <li><a href="7.3.html">继承</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="8.1.html">continue&break</a></li>
+                    <li><a href="9.1.html">错误处理机制</a></li>
+                    <li>
+                        <span class="opener">内置函数</span>
+                        <ul>
+                            <li><a href="10.1.html">abs&fabs</a></li>
+                            <li><a href="10.2.html">len&max&min</a></li>
+                            <li><a href="10.3.html">enumarate</a></li>
+                            <li><a href="#">bin&int&oct&hex</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="11.1.html">正则表达式</a></li>
+                    <li><a href="#">GUI</a></li>
+                    <li><a href="#">SMPT发送电子邮件</a></li>
+                    <li>
+                        <span class="opener">进程线程</span>
+                        <ul>
+                            <li><a href="#">多进程</a></li>
+                            <li><a href="#">多线程</a></li>
+                            <li><a href="#">模块</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="opener">简单算法题</span>
+                        <ul>
+                            <li><a href="#">list的应用</a></li>
+                            <li><a href="#">str的应用</a></li>
+                            <li><a href="#">字典</a></li>
+                            <li><a href="#">二叉树</a></li>
+                            <li><a href="#">链表</a></li>
+                            <li><a href="#">排序问题</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>杂文</h2>
+                </header>
+                <div class="mini-posts">
+                    <article>
+                        <a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+                        <p>123412431234123re aliquam.</p>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+                        <p>犯得上法发到付 m.</p>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+                        <p>12312435145146orper dolore aliquam.</p>
+                    </article>
+                </div>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </section>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>如果大家有什么建议或者建议请及时联系我我才能为大家做出更好的教程</p>
+                <ul class="contact">
+                    <li class="fa-envelope-o"><a href="#">zhihao8612@gmail.com</a></li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">&copy;2018 wzhMicro.github.io All rights reserved.</p>
+            </footer>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>
