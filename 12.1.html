@@ -32,45 +32,132 @@
                 <header class="main">
                     <h1>GUI</h1>
                 </header>
-                <h3>Python提供了许多内置函数，这里我将讲几个我自己用的比较多次的函数，如有需要我后期会做补充。</h3>
+                <h3>图形开发界面主要用的是Tkinter库。注意：在引用Tkinter时，python2是<code>import Tkinter</code>.而python3是小写<code>import tkinter</code></h3>
                 <hr class="major" />
 
-                <h2>int</h2>
-                <p>将一个字符串或数字转换为整型。<code>int(x, base=10)</code>.第一个数是要转换的参数，第二个数是代表你需要的转换的内容是几进制。</p>
-                <pre><code>>>>int(2.4)
-                    # 2
-                    >>>int('77')   # 77为字符串
-                    # 77
-                    >>>int(0xa,16)   # 0xa是16进制
-                    10</code></pre>
+                <h2>创建控件</h2>
+                <p>我们现在创建一个最简单的界面试试，这个界面甚至不用‘hello world’</p>
+                <pre><code>import tkinter
+root=tkinter.Tk()
+root.mainloop()</code></pre><img src="images/12/tk.PNG">
                 <hr class="major" />
 
-                <h2>bin</h2>
-                <p>返回一个十进制数字的二进制表示,并且是以字符串形式返回。</p>
-                <pre><code>>>>bin(20)
-                    # '0b10100'</code></pre>
-                <hr class="major" />
+                <h2>Tkinter 组件</h2>
+                <p>为了让我们的界面看起来更加多功能，我们要用自身的组件。</p>
+                <div class="table-wrapper">
+                    <table class="alt">
+                        <thead>
+                        <tr>
+                            <th>组件</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Button</td>
+                            <td>按钮</td>
 
-                <h2>oct</h2>
-                <p>返回一个十进制数字的八进制表示,并且是以字符串形式返回。</p>
-                <pre><code>>>>oct(10)
-                    # '012'
-                    >>> oct(20)
-                    # '024'</code></pre>
-                <hr class="major" />
+                        </tr>
+                        <tr>
+                            <td>Canvas</td>
+                            <td>画布</td>
 
-                <h2>hex</h2>
-                <p>返回一个十进制数字的十六进制表示,并且是以字符串形式返回。</p>
-                <pre><code>>>>hex(1L)
-                    # '0x1L'
-                    >>> hex(12)
-                    # '0xc'</code></pre>
+                        </tr>
+                        <tr>
+                            <td>Checkbutton</td>
+                            <td>多选框</td>
 
+                        </tr>
+                        <tr>
+                            <td>Entry</td>
+                            <td>输入</td>
+
+                        </tr>
+                        <tr>
+                            <td>Frame</td>
+                            <td>框架</td>
+                        </tr>
+                        <tr>
+                            <td>Label</td>
+                            <td>标签</td>
+
+                        </tr>
+                        <tr>
+                            <td>Listbox</td>
+                            <td>列表框</td>
+
+                        </tr>
+                        <tr>
+                            <td>Menubutton</td>
+                            <td>菜单按钮</td>
+
+                        </tr>
+                        <tr>
+                            <td>Menu</td>
+                            <td>菜单</td>
+
+                        </tr>
+                        <tr>
+                            <td>Message</td>
+                            <td>消息控件</td>
+
+                        </tr>
+                        <tr>
+                            <td>Radiobutton	</td>
+                            <td>单选按钮</td>
+
+                        </tr>
+                        <tr>
+                            <td>Scale</td>
+                            <td>范围控件</td>
+
+                        </tr>
+                        <tr>
+                            <td>Scrollbar</td>
+                            <td>滚动条</td>
+
+                        </tr>
+                        <tr>
+                            <td>Text</td>
+                            <td>文本控件</td>
+
+                        </tr>
+                        <tr>
+                            <td>tkMessageBox</td>
+                            <td>消息框</td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>x我们接下来就用几个组件来写个简单的东西吧</p>
+                <pre><code>from tkinter import *
+import tkinter.messagebox as tm
+
+class Application(Frame):
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.pack()
+        self.win()
+    def win(self):
+        self.num = Entry(self)
+        self.num.pack()
+        self.addButton = Button(self, text='计算2+1=?', command=self.add)
+        self.addButton.pack()
+    def add(self):
+        num=int(self.num.get())
+        if num1==3:
+            tm.showinfo('1+2', 'good job!')
+        else:
+            tm.showinfo('1+2', 'wrong answer')
+app = Application()
+app.master.title('imput number')
+app.mainloop()</code></pre><img src="images/12/run.gif">
 
             </section>
             <ul class="actions">
-                <li><a href="10.3.html" class="button">上一节</a></li>
-                <li><a href="11.1.html" class="button primary">下一节</a></li>
+                <li><a href="11.1.html" class="button">上一节</a></li>
+                <li><a href="13.1.html" class="button primary">下一节</a></li>
 
             </ul>
         </div>
@@ -140,18 +227,18 @@
                             <li><a href="10.1.html">abs&fabs</a></li>
                             <li><a href="10.2.html">len&max&min</a></li>
                             <li><a href="10.3.html">enumarate</a></li>
-                            <li><a href="#">bin&int&oct&hex</a></li>
+                            <li><a href="10.4.html">bin&int&oct&hex</a></li>
                         </ul>
                     </li>
                     <li><a href="11.1.html">正则表达式</a></li>
                     <li><a href="#">GUI</a></li>
-                    <li><a href="#">SMPT发送电子邮件</a></li>
+                    <li><a href="13.1">SMPT发送电子邮件</a></li>
                     <li>
                         <span class="opener">进程线程</span>
                         <ul>
-                            <li><a href="#">多进程</a></li>
-                            <li><a href="#">多线程</a></li>
-                            <li><a href="#">模块</a></li>
+                            <li><a href="14.1.html">多线程</a></li>
+                            <li><a href="14.2.html">多进程</a></li>
+                            <li><a href="14.3.html">进程VS线程</a></li>
                         </ul>
                     </li>
                     <li>
@@ -176,15 +263,15 @@
                 <div class="mini-posts">
                     <article>
                         <a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-                        <p>123412431234123re aliquam.</p>
+                        <p>还未完成暂不开放，谢谢</p>
                     </article>
                     <article>
                         <a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-                        <p>犯得上法发到付 m.</p>
+                        <p>还未完成暂不开放，谢谢</p>
                     </article>
                     <article>
                         <a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-                        <p>12312435145146orper dolore aliquam.</p>
+                        <p>还未完成暂不开放，谢谢</p>
                     </article>
                 </div>
                 <ul class="actions">

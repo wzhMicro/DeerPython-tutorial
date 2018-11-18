@@ -30,45 +30,89 @@
             <!-- Content -->
             <section>
                 <header class="main">
-                    <h1>内置函数</h1>
+                    <h1>多线程</h1>
                 </header>
-                <h3>Python提供了许多内置函数，这里我将讲几个我自己用的比较多次的函数，如有需要我后期会做补充。</h3>
+                <h3>Python3 通过两个标准库 _thread 和 threading 提供对线程的支持。(python3已经废弃了thread)，_thread比较偏向底层，
+                    这里使用threading示例。</h3>
+                <p>线程举个例子吧，就是你有一项工作要完成，比如挖一个大坑，如果只有你一个人来挖那就是单线程，所以为了提高效率，我们可以找更多的人来帮忙，这就是多线程。
+                    不过，有时候多线程其实也没有太大用处，这点我们最后再说。我们先看看多线程的例子。</p>
                 <hr class="major" />
 
-                <h2>len</h2>
-                <p>返回对象（字符、列表、元组等）长度或项目个数</p>
-                <pre><code>list=[1,2,2,3,5]
->>>len(list)
-5
-</code>通常也可以搭配range使用<code>list=[1,2,2,3,5]
-for i in range(len(list)):
-    print("现在数字是：",list[i])
+                <pre><code>import time
+import threading
 
-# 现在数字是：1
-# 现在数字是：2
-# 现在数字是：2
-# 现在数字是：3
-# 现在数字是：5</code></pre>
+class myThread (threading.Thread):
+    def __init__(self, threadID, name):
+        threading.Thread.__init__(self)
+        self.threadID = threadID
+        self.name = name
+    def run(self):
+        print("开始线程：" + self.name)
+        thr(self.name, 4)
+        print("退出线程：" + self.name)
+
+def thr(threadName, counter):
+    while counter:
+        time.sleep(1)
+        print("%s: number is %s" % (threadName,counter))
+        counter -= 1
+
+thread1,thread2 = myThread(1, "Thread-1"),myThread(2, "Thread-2")
+thread1.start()
+thread2.start()
+thread1.join()
+thread2.join()
+print("结束主线程")</code>结果如下：</pre><img src="images/14/tk1.PNG">
+                <p>可以看到创建了两个线程依次打印4，3，2，1.可是我们发现线程不是顺序进行，并且主线程结束了，子线程还在运行。所以我们
+                    需要<code>join()</code>来解决这个问题，只有做出一点修改即可。</p>
+                <pre><code>import time
+import threading
+
+class myThread (threading.Thread):
+    def __init__(self, threadID, name):
+        threading.Thread.__init__(self)
+        self.threadID = threadID
+        self.name = name
+    def run(self):
+        print("开始线程：" + self.name)
+        threadLock.acquire()    # 获取锁
+        thr(self.name, 4)
+        threadLock.release()    # 释放锁
+
+def thr(threadName, counter):
+    while counter:
+        time.sleep(1)
+        print("%s: number is %s" % (threadName,counter))
+        counter -= 1
+
+threadLock = threading.Lock()     # 创建锁
+threads = []
+                    
+thread1,thread2 = myThread(1, "Thread-1"),myThread(2, "Thread-2")
+thread1.start()
+thread2.start()
+threads.append(thread1)
+threads.append(thread2)
+for i in threads:
+    i.join()
+print("结束主线程")</code>这样就好多了，结果如下：</pre><img src="images/14/tk2.png">
+                <strong>关于上面锁的意思是线程之间是可以数据共享。当多个线程对某一个共享数据进行操作时，就需要考虑到线程安全问题。所以这时就有了说的概念。
+                为了避免多个线程同时一个数据，所以我们需要添加锁，首先创建锁，使用时第一要获取锁，用完要释放锁。对于上面的例子，当有了锁之后其他线程就不能执行thr()函数了。</strong>
+
+
                 <hr class="major" />
+                <h2>为什么多线程并没有想象中的好(GIL)</h2>
+                <p>GIL 的全称是 Global Interpreter Lock(全局解释器锁),是在设计语言时为了安全性考虑的，所以对于其他语言来说，CPU是支持多个线程同时执行，但Python，同时只能由一个线程在执行。只不过是每个线程切换的很快让你看起来好像是多线程并行。就好比你现在有5个人一起帮你挖坑，但是这个坑太小，每次只可以容纳一个人，所以实际工作还是一个人在工作，效率并没有提升多少。
+                这也是在多核CPU上多线程效率并不高的原因。不过我们可以通过学习多线程来帮助理解并行处理的概念也是有好处的。</p>
 
-                <h2>max</h2>
-                <p>返回给定参数的最大值</p>
-                <pre><code>>>>list=[100,99,22,111]
->>>max(list)
-111</code></pre>
-                <hr class="major" />
+                <p>那这时候我们就应该考虑<strong><a href="14.2.html">多进程</a></strong>了。</p>
 
-                <h2>min</h2>
-                <p>返回给定参数的最小值</p>
-                <pre><code>>>>list=[100,99,22,111]
->>>min(list)
-22</code></pre>
 
 
             </section>
             <ul class="actions">
-                <li><a href="10.1.html" class="button">上一节</a></li>
-                <li><a href="10.3.html" class="button primary">下一节</a></li>
+                <li><a href="12.1.html" class="button">上一节</a></li>
+                <li><a href="14.2.html" class="button primary">下一节</a></li>
 
             </ul>
         </div>
@@ -136,7 +180,7 @@ for i in range(len(list)):
                         <span class="opener">内置函数</span>
                         <ul>
                             <li><a href="10.1.html">abs&fabs</a></li>
-                            <li><a href="#">len&max&min</a></li>
+                            <li><a href="10.2.html">len&max&min</a></li>
                             <li><a href="10.3.html">enumarate</a></li>
                             <li><a href="10.4.html">bin&int&oct&hex</a></li>
                         </ul>
@@ -147,7 +191,7 @@ for i in range(len(list)):
                     <li>
                         <span class="opener">进程线程</span>
                         <ul>
-                            <li><a href="14.1.html">多线程</a></li>
+                            <li><a href="#">多线程</a></li>
                             <li><a href="14.2.html">多进程</a></li>
                             <li><a href="14.3.html">进程VS线程</a></li>
                         </ul>

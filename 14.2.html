@@ -30,45 +30,50 @@
             <!-- Content -->
             <section>
                 <header class="main">
-                    <h1>内置函数</h1>
+                    <h1>多进程</h1>
                 </header>
-                <h3>Python提供了许多内置函数，这里我将讲几个我自己用的比较多次的函数，如有需要我后期会做补充。</h3>
+                <h3>multiprocessing</h3>
+                <p>还是那个挖坑的例子，由于GIL，一个坑不能多人挖，但是多进程就不一样了，
+                    多进程同时创建多个坑，每个人都可以同时工作，这样极大提高了效率。多进程可以正在发挥多核CPU的优点。</p>
+                <p>python是由<code>multiprocessing</code>支持多进程的。</p>
                 <hr class="major" />
+                <p>首先来看<strong>一个子进程</strong></p>
+                <pre><code>import multiprocessing as mp
 
-                <h2>len</h2>
-                <p>返回对象（字符、列表、元组等）长度或项目个数</p>
-                <pre><code>list=[1,2,2,3,5]
->>>len(list)
-5
-</code>通常也可以搭配range使用<code>list=[1,2,2,3,5]
-for i in range(len(list)):
-    print("现在数字是：",list[i])
+def fc(name):
+    print 'hello', name
 
-# 现在数字是：1
-# 现在数字是：2
-# 现在数字是：2
-# 现在数字是：3
-# 现在数字是：5</code></pre>
+if __name__ == '__main__':
+    p = mp.Process(target=fc, args=('world',)) # 新建一个子进程p，目标函数是fc，args是函数fc的参数列表
+    p.start()
+    p.join()
+
+#hello world</code></pre>
+                <p>这里可以看出了实际上进程和线程的写法是非常相似的</p>
                 <hr class="major" />
+                <h3>多个进程</h3>
+                <p>如果是多个子进程的话我们就要用到进程池了（pool）</p>
+                <pre><code>import multiprocessing
 
-                <h2>max</h2>
-                <p>返回给定参数的最大值</p>
-                <pre><code>>>>list=[100,99,22,111]
->>>max(list)
-111</code></pre>
-                <hr class="major" />
+def func(msg):
+    print(multiprocessing.current_process().name + '-' + msg)
 
-                <h2>min</h2>
-                <p>返回给定参数的最小值</p>
-                <pre><code>>>>list=[100,99,22,111]
->>>min(list)
-22</code></pre>
+if __name__ == "__main__":
+    pool = multiprocessing.Pool(processes=3)   # 创建3个进程
+    for i in range(7):
+        msg = "number is %d" % i
+        pool.apply_async(func, (msg, ))       # apply()是Pool的方法，只能传递一个值，比如这里的msg，但是要记住后面加个逗号
+    pool.close()
+    pool.join()
+    print("全部结束")</code></pre><img src="images/14/mppool.PNG">
+
+
 
 
             </section>
             <ul class="actions">
-                <li><a href="10.1.html" class="button">上一节</a></li>
-                <li><a href="10.3.html" class="button primary">下一节</a></li>
+                <li><a href="14.1.html" class="button">上一节</a></li>
+                <li><a href="14.3.html" class="button primary">下一节</a></li>
 
             </ul>
         </div>
@@ -136,7 +141,7 @@ for i in range(len(list)):
                         <span class="opener">内置函数</span>
                         <ul>
                             <li><a href="10.1.html">abs&fabs</a></li>
-                            <li><a href="#">len&max&min</a></li>
+                            <li><a href="10.2.html">len&max&min</a></li>
                             <li><a href="10.3.html">enumarate</a></li>
                             <li><a href="10.4.html">bin&int&oct&hex</a></li>
                         </ul>
@@ -148,7 +153,7 @@ for i in range(len(list)):
                         <span class="opener">进程线程</span>
                         <ul>
                             <li><a href="14.1.html">多线程</a></li>
-                            <li><a href="14.2.html">多进程</a></li>
+                            <li><a href="#">多进程</a></li>
                             <li><a href="14.3.html">进程VS线程</a></li>
                         </ul>
                     </li>

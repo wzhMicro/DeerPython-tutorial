@@ -30,45 +30,23 @@
             <!-- Content -->
             <section>
                 <header class="main">
-                    <h1>内置函数</h1>
+                    <h1>多进程 VS 多线程</h1>
                 </header>
-                <h3>Python提供了许多内置函数，这里我将讲几个我自己用的比较多次的函数，如有需要我后期会做补充。</h3>
+                <h3>CPU密集型</h3>
+                <p>程序线性执行，大量占用CPU，总是接近100%。比如执行大量循环，迭代等。</p>
+                <p>对于CPU密集型的程序而言，原本CPU就是一直繁忙的状态，强制使用多线程技术，不会增加CPU的利用效率，却增加线程切换的代价，可能导致多线程的执行效率还不如单线程的执行效率。所以多进程效率会更高，实现正在真正意义上的并行。</p>
                 <hr class="major" />
+                <h3>IO密集型</h3>
+                <p>程序大量时间花费在等待I/O操作，CPU总是闲置，在10%左右。比如网络爬虫，页面请求等。</p>
+                <p>对于IO密集型的程序而言，使用多线程技术可以在CPU阻塞等待的间隔执行其他操作，可以提高CPU的使用效率</p>
 
-                <h2>len</h2>
-                <p>返回对象（字符、列表、元组等）长度或项目个数</p>
-                <pre><code>list=[1,2,2,3,5]
->>>len(list)
-5
-</code>通常也可以搭配range使用<code>list=[1,2,2,3,5]
-for i in range(len(list)):
-    print("现在数字是：",list[i])
 
-# 现在数字是：1
-# 现在数字是：2
-# 现在数字是：2
-# 现在数字是：3
-# 现在数字是：5</code></pre>
-                <hr class="major" />
-
-                <h2>max</h2>
-                <p>返回给定参数的最大值</p>
-                <pre><code>>>>list=[100,99,22,111]
->>>max(list)
-111</code></pre>
-                <hr class="major" />
-
-                <h2>min</h2>
-                <p>返回给定参数的最小值</p>
-                <pre><code>>>>list=[100,99,22,111]
->>>min(list)
-22</code></pre>
 
 
             </section>
             <ul class="actions">
-                <li><a href="10.1.html" class="button">上一节</a></li>
-                <li><a href="10.3.html" class="button primary">下一节</a></li>
+                <li><a href="14.1.html" class="button">上一节</a></li>
+                <li><a href="14.3.html" class="button primary">下一节</a></li>
 
             </ul>
         </div>
@@ -136,7 +114,7 @@ for i in range(len(list)):
                         <span class="opener">内置函数</span>
                         <ul>
                             <li><a href="10.1.html">abs&fabs</a></li>
-                            <li><a href="#">len&max&min</a></li>
+                            <li><a href="10.2.html">len&max&min</a></li>
                             <li><a href="10.3.html">enumarate</a></li>
                             <li><a href="10.4.html">bin&int&oct&hex</a></li>
                         </ul>
@@ -148,7 +126,7 @@ for i in range(len(list)):
                         <span class="opener">进程线程</span>
                         <ul>
                             <li><a href="14.1.html">多线程</a></li>
-                            <li><a href="14.2.html">多进程</a></li>
+                            <li><a href="#">多进程</a></li>
                             <li><a href="14.3.html">进程VS线程</a></li>
                         </ul>
                     </li>

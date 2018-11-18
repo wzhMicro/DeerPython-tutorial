@@ -30,45 +30,38 @@
             <!-- Content -->
             <section>
                 <header class="main">
-                    <h1>内置函数</h1>
+                    <h1>SMPT</h1>
                 </header>
-                <h3>Python提供了许多内置函数，这里我将讲几个我自己用的比较多次的函数，如有需要我后期会做补充。</h3>
+                <h3>Python通过smtplib来发送邮件。</h3>
                 <hr class="major" />
 
-                <h2>len</h2>
-                <p>返回对象（字符、列表、元组等）长度或项目个数</p>
-                <pre><code>list=[1,2,2,3,5]
->>>len(list)
-5
-</code>通常也可以搭配range使用<code>list=[1,2,2,3,5]
-for i in range(len(list)):
-    print("现在数字是：",list[i])
-
-# 现在数字是：1
-# 现在数字是：2
-# 现在数字是：2
-# 现在数字是：3
-# 现在数字是：5</code></pre>
+                <h2>sendmail</h2>
+                <p>如果你的电脑上安装了sendmail那你就可以直接通过sendmail来发送邮件，如果没有的话，还是得通过其他邮件服务商的 SMTP 访问比如网易，gmail等（意味着你要有账号密码）</p>
+                <pre><code>SMTP.sendmail(from_addr, to_addrs, msg)</code></pre>
+                <p>如果没有sendmail需要设置服务器并且知道服务器的端口号<pre><code>smtp_server = 'smtp.gmail.com'
+smtp_port = 587(465)    #如果服务器是ssl就用465
+server = smtplib.SMTP(smtp_server, smtp_port)
+server.starttls()</code></pre></p>
+                <p>一个简单的例子：<pre><code>import smtplib
+sender = 'user_me@gmail.com'
+target  = 'user_you@gmail.com'
+msg = 'text meg!'
+username = 'user_me@gmail.com'
+password = 'pwd'
+server = smtplib.SMTP('smtp.gmail.com:587')
+server.starttls()
+server.login(username,password)
+server.sendmail(sender, target, msg)
+server.quit()</code></pre>这里我用的是gmail，如果你是qq邮箱，端口换成25</p>
                 <hr class="major" />
 
-                <h2>max</h2>
-                <p>返回给定参数的最大值</p>
-                <pre><code>>>>list=[100,99,22,111]
->>>max(list)
-111</code></pre>
-                <hr class="major" />
 
-                <h2>min</h2>
-                <p>返回给定参数的最小值</p>
-                <pre><code>>>>list=[100,99,22,111]
->>>min(list)
-22</code></pre>
 
 
             </section>
             <ul class="actions">
-                <li><a href="10.1.html" class="button">上一节</a></li>
-                <li><a href="10.3.html" class="button primary">下一节</a></li>
+                <li><a href="12.1.html" class="button">上一节</a></li>
+                <li><a href="14.1.html" class="button primary">下一节</a></li>
 
             </ul>
         </div>
@@ -136,14 +129,14 @@ for i in range(len(list)):
                         <span class="opener">内置函数</span>
                         <ul>
                             <li><a href="10.1.html">abs&fabs</a></li>
-                            <li><a href="#">len&max&min</a></li>
+                            <li><a href="10.2.html">len&max&min</a></li>
                             <li><a href="10.3.html">enumarate</a></li>
                             <li><a href="10.4.html">bin&int&oct&hex</a></li>
                         </ul>
                     </li>
                     <li><a href="11.1.html">正则表达式</a></li>
                     <li><a href="12.1.html">GUI</a></li>
-                    <li><a href="13.1.html">SMPT发送电子邮件</a></li>
+                    <li><a href="#">SMPT发送电子邮件</a></li>
                     <li>
                         <span class="opener">进程线程</span>
                         <ul>
