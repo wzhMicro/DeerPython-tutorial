@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Deer Python</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="shortcut icon"  href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <p class="logo"><a href="index.html"><strong>Deer</strong>—Python</a></p>
+                <ul class="icons">
+                    <li><a href="https://space.bilibili.com/379211059/#/" ><span class="label"><img src="images/bilibili.png"></span></a></li>
+                    <li><a href="https://github.com/wzhMicro" class="icon fa-github"><span class="label">Github</span></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCN9JQUexZdUEAqJ-pylMTLg?view_as=subscriber" class="icon fa-youtube"><span class="label">Youtube</span></a></li>
+                </ul>
+            </header>
+
+            <!-- Content -->
+            <section>
+                <header class="main">
+                    <h1>智能机器人</h1>
+                    <p>这里有两种机器人可以选择，一个是<a href="http://cloud.xiaoi.com"target="view_window">小I机器人</a>，一个是<a href="http://www.turingapi.com/"target="view_window">图灵机器人</a>，各自有各自的特点吧，小I可以设置自动回复，图灵机器人则相比更加智能一点，这里用的是小I，因为图灵需要我有国内手机验证码。</p>
+                </header>
+                <hr class="major" />
+
+                <h2>注册小I</h2>
+                <p>注册成功后，点击开发者中心会有key和secret，我们就是用这两个了。</p><img src="images/wx/xiaoi.PNG">
+                <pre>首先还是登录<code>from wxpy import *
+bot = Bot() </code>
+                然后我们就需要填写key和secret了<code>xiaoi=XiaoI('你的key','你的secret')
+my_friend = bot.friends()
+
+@bot.register(my_friend,TEXT)     #限定给谁回复，这里是所有人都有，只回复文字内容。
+def do_reply(msg):
+    xiaoi.do_reply(msg)</code>接下来就是启动程序并且保持登录状态<code>embed()</code>
+                </pre>
+                全部代码
+                <pre><code>from wxpy import *
+bot=Bot()
+xiaoi=XiaoI('******','********')
+my_friend = bot.friends()
+
+@bot.register(my_friend,TEXT)
+def do_reply(msg):
+    xiaoi.do_reply(msg)
+
+embed()</code></pre>
+                <p>很简单吧，几行代码就搞定一个人工智能。接下来分析一下自己的好友吧</p>
+                <ul>
+                    <li><a href="itchat1.html">图灵机器人</a></li>
+                    <li><a href="itchat2.html">好友性别比重分析</a></li>
+                    <li><a href="itchat3.html">好友信息写入csv文件并生成词云</a></li>
+                    <li><a href="itchat4.html">地理位置分析</a></li>
+                </ul>
+
+            </section>
+            <ul class="actions">
+                <li><a href="14.2.html" class="button">上一节</a></li>
+                <li><a href="15.1.html" class="button primary">下一节</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>微信分析目录选项</h2>
+                </header>
+                <ul>
+                    <li><a href="#">简介wxpy</a></li>
+                    <li><a href="itchat0.html">自动聊天机器人</a></li>
+                    <li><a href="itchat2.html">好友性别分析</a></li>
+                    <li><a href="itchat3.html">好友信息写入csv文件并生成词云</a></li>
+                    <li><a href="itchat4.html">地理位置分析</a></li>
+                </ul>
+
+            </nav>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>杂文</h2>
+                </header>
+                <div class="mini-posts">
+                    <article>
+                        <a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+                        <p>还未完成暂不开放，谢谢</p>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+                        <p>还未完成暂不开放，谢谢</p>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+                        <p>还未完成暂不开放，谢谢</p>
+                    </article>
+                </div>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </section>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>如果大家有什么建议或者建议请及时联系我我才能为大家做出更好的教程</p>
+                <ul class="contact">
+                    <li class="fa-envelope-o"><a href="#">zhihao8612@gmail.com</a></li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">&copy;2018 wzhMicro.github.io All rights reserved.</p>
+            </footer>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

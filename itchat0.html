@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Deer Python</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="shortcut icon"  href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <p class="logo"><a href="index.html"><strong>Deer</strong>—Python</a></p>
+                <ul class="icons">
+                    <li><a href="https://space.bilibili.com/379211059/#/" ><span class="label"><img src="images/bilibili.png"></span></a></li>
+                    <li><a href="https://github.com/wzhMicro" class="icon fa-github"><span class="label">Github</span></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCN9JQUexZdUEAqJ-pylMTLg?view_as=subscriber" class="icon fa-youtube"><span class="label">Youtube</span></a></li>
+                </ul>
+            </header>
+
+            <!-- Content -->
+            <section>
+                <header class="main">
+                    <h1>wxpy</h1>
+                    <p>wxpy 在 itchat 的基础上，通过大量接口优化提升了模块的易用性，并进行丰富的功能扩展</p>
+                </header>
+                <hr class="major" />
+
+                <h2>安装</h2>
+                <p>和其他模块一样，还是靠<code>pip</code>来安装。<code>pip install wxpy</code>.也许要更加python版本改为pip3</p>
+
+                <hr class="major" />
+
+                <h2>登录</h2>
+                <p>wxpy使用起来非常简单，比如登录开始介绍<pre><code>from wxpy import *
+bot = Bot()       #初始化，扫码登录。
+                </code></pre>那我们现在开始给名为‘123木头人’的人发送消息
+                <pre><code>target = bot.friends().search('123木头人')[0]
+target.send('Hello, world!')</code></pre>这样只要运行脚本就可以自动发送‘Hello world！’给123木头人了，当然这里还可以发送图片视频，名片等资源，并且我们不单单可以
+                给某个朋友发送，还可以给群聊发送或者公众号发送。这里我们就简单的介绍一下wxpy，后面实际操作几个例子。</p>
+<ul>
+    <li><a href="itchat1.html">图灵机器人</a></li>
+    <li><a href="itchat2.html">好友性别比重分析</a></li>
+    <li><a href="itchat3.html">好友信息写入csv文件并生成词云</a></li>
+    <li><a href="itchat4.html">地理位置分析</a></li>
+</ul>
+
+            </section>
+            <ul class="actions">
+                <li><a href="14.2.html" class="button">上一节</a></li>
+                <li><a href="15.1.html" class="button primary">下一节</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>微信分析目录选项</h2>
+                </header>
+                <ul>
+                    <li><a href="#">简介wxpy</a></li>
+                    <li><a href="itchat0.html">自动聊天机器人</a></li>
+                    <li><a href="itchat2.html">好友性别分析</a></li>
+                    <li><a href="itchat3.html">好友信息写入csv文件并生成词云</a></li>
+                    <li><a href="itchat4.html">地理位置分析</a></li>
+                </ul>
+
+            </nav>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>杂文</h2>
+                </header>
+                <div class="mini-posts">
+                    <article>
+                        <a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+                        <p>还未完成暂不开放，谢谢</p>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+                        <p>还未完成暂不开放，谢谢</p>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+                        <p>还未完成暂不开放，谢谢</p>
+                    </article>
+                </div>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </section>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>如果大家有什么建议或者建议请及时联系我我才能为大家做出更好的教程</p>
+                <ul class="contact">
+                    <li class="fa-envelope-o"><a href="#">zhihao8612@gmail.com</a></li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">&copy;2018 wzhMicro.github.io All rights reserved.</p>
+            </footer>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
