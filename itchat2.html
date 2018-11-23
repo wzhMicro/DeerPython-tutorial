@@ -20,53 +20,51 @@
             <!-- Header -->
             <header id="header">
                 <p class="logo"><a href="index.html"><strong>Deer</strong>—Python</a></p>
-                <iframe width="700" height="394" src="#" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <ul class="icons">
                     <li><a href="https://space.bilibili.com/379211059/#/" ><span class="label"><img src="images/bilibili.png"></span></a></li>
                     <li><a href="https://github.com/wzhMicro" class="icon fa-github"><span class="label">Github</span></a></li>
                     <li><a href="https://www.youtube.com/channel/UCN9JQUexZdUEAqJ-pylMTLg?view_as=subscriber" class="icon fa-youtube"><span class="label">Youtube</span></a></li>
                 </ul>
             </header>
+
             <!-- Content -->
             <section>
                 <header class="main">
-                    <h1>智能机器人</h1>
-                    <p>这里有两种机器人可以选择，一个是<a href="http://cloud.xiaoi.com"target="view_window">小I机器人</a>，一个是<a href="http://www.turingapi.com/"target="view_window">图灵机器人</a>，各自有各自的特点吧，小I可以设置自动回复，图灵机器人则相比更加智能一点，这里用的是小I，因为图灵需要我有国内手机验证码。</p>
-                </header>
+                    <h1>性别比重</h1>
 
+                </header>
                 <hr class="major" />
 
-                <h2>注册小I</h2>
-                <p>注册成功后，点击开发者中心会有key和secret，我们就是用这两个了。</p><img src="images/wx/xiaoi.PNG">
+                <h2>性别比重分析</h2>
+                <p>我们可以通过wxpy来分析自己好友的组成并且生成图表。</p>
                 <pre>首先还是登录<code>from wxpy import *
-bot = Bot() </code>
-                然后我们就需要填写key和secret了<code>xiaoi=XiaoI('你的key','你的secret')
-my_friend = bot.friends()
-
-@bot.register(my_friend,TEXT)     #限定给谁回复，这里是所有人都有，只回复文字内容。
-def do_reply(msg):
-    xiaoi.do_reply(msg)</code>接下来就是启动程序并且保持登录状态<code>embed()</code>
-                </pre>
-                全部代码
-                <pre><code>from wxpy import *
 bot=Bot()
-xiaoi=XiaoI('******','********')
-my_friend = bot.friends()
+my_friend=bot.friends()</code>
+                接下来我们需要创建一个字典来实现存入性别的数值。<code>sexdict = {'male': 0, 'female': 0, 'other': 0}
 
-@bot.register(my_friend,TEXT)
-def do_reply(msg):
-    xiaoi.do_reply(msg)
+for friend in my_friend:
+    if friend.sex == 1:                   # 1代表男性
+        sexdict['male'] += 1
+    elif friend.sex == 2:                 # 2代表女性
+        sexdict['female'] += 1
+    else:
+        sexdict['other']+=1</code>
+                接下来我们只要打印这个字典就可以得到相应的内容<code>print(sexdict)</code>比如<strong>{'male':184,'female':178,'other':12}</strong></pre>
 
-embed()</code></pre>
-                <p>具体效果如下</p><img src="images/wx/chat1.jpg">
-                <img src="images/wx/chat2.jpg">
-                <p>很简单吧，几行代码就搞定一个人工智能。接下来<a href="itchat2.html">分析一下自己的好友</a>吧</p>
+                <p>接下来就是生成图表了，如果你会使用Matplotlib的话可以自己画图。这里我们就用<a href="http://echarts.baidu.com/echarts2/doc/example/pie1.html" target="view_window">ECharts</a>来代替我们实现吧。</p>
+                <p>打开上面的网址，左边是已经替我们写好的代码，右边就是显示的结果了。</p><img src="images/wx/ec.PNG">
+                <p>我们将我们的数据填写进去，需要修改的地方具体如下</p><img src="images/wx/ec1.PNG"> <img src="images/wx/ec2.PNG"> <img src="images/wx/ec3.PNG">
+                <p>然后点击刷新按钮，就可以看到结果了。</p>
+                <img src="images/wx/resultec.PNG">
+                <hr class="major" />
 
 
+
+                    是不是很有意思呢，接下来我们将<a href="itchat3.html">好友信息写入csv文件并生成词云</a>吧！
             </section>
             <ul class="actions">
-                <li><a href="itchat0.html" class="button">上一节</a></li>
-                <li><a href="itchat2.html" class="button primary">下一节</a></li>
+                <li><a href="itchat1.html" class="button">上一节</a></li>
+                <li><a href="itchat3.html" class="button primary">下一节</a></li>
 
             </ul>
         </div>
@@ -85,8 +83,8 @@ embed()</code></pre>
                 </header>
                 <ul>
                     <li><a href="itchat0.html">简介wxpy</a></li>
-                    <li><a href="#">自动聊天机器人</a></li>
-                    <li><a href="itchat2.html">好友性别分析</a></li>
+                    <li><a href="itchat1.html">自动聊天机器人</a></li>
+                    <li><a href="#">好友性别分析</a></li>
                     <li><a href="itchat3.html">好友信息写入csv文件并生成词云</a></li>
                     <li><a href="itchat4.html">地理位置分析</a></li>
                 </ul>
