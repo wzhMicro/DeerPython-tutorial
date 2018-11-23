@@ -38,8 +38,8 @@
       <file leaf-file-name="itchat0.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/itchat0.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1056" max-vertical-offset="3480">
-              <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
+            <state vertical-scroll-proportion="-8.0" vertical-offset="1056" max-vertical-offset="3504">
+              <caret line="55" column="69" selection-start-line="55" selection-start-column="69" selection-end-line="55" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -48,7 +48,7 @@
       <file leaf-file-name="1.2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1.2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="5496">
+            <state vertical-scroll-proportion="-6.5454545" vertical-offset="960" max-vertical-offset="5496">
               <caret line="49" column="79" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="79" />
               <folding />
             </state>
@@ -58,8 +58,8 @@
       <file leaf-file-name="itchat1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/itchat1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="967" max-vertical-offset="3696">
-              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+            <state vertical-scroll-proportion="-3.4242425" vertical-offset="1399" max-vertical-offset="3696">
+              <caret line="63" column="94" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="94" />
               <folding />
             </state>
           </provider>
@@ -68,8 +68,8 @@
       <file leaf-file-name="itchat2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/itchat2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6969697" vertical-offset="319" max-vertical-offset="3648">
-              <caret line="17" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="146" selection-end-column="7" />
+            <state vertical-scroll-proportion="-4.151515" vertical-offset="1255" max-vertical-offset="3672">
+              <caret line="58" column="16" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="97" />
               <folding />
             </state>
           </provider>
@@ -78,8 +78,8 @@
       <file leaf-file-name="itchat3.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/itchat3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="14.030303" vertical-offset="2623" max-vertical-offset="4320">
-              <caret line="90" column="72" selection-start-line="90" selection-start-column="72" selection-end-line="90" selection-end-column="72" />
+            <state vertical-scroll-proportion="-6.3333335" vertical-offset="1975" max-vertical-offset="4344">
+              <caret line="91" column="100" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="100" />
               <folding />
             </state>
           </provider>
@@ -88,8 +88,8 @@
       <file leaf-file-name="itchat4.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/itchat4.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.33589253" vertical-offset="1111" max-vertical-offset="3096">
-              <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
+            <state vertical-scroll-proportion="-3.2380037" vertical-offset="9247" max-vertical-offset="9768">
+              <caret line="315" column="61" selection-start-line="315" selection-start-column="61" selection-end-line="315" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -168,11 +168,11 @@
         <option value="$PROJECT_DIR$/14.3.html" />
         <option value="$PROJECT_DIR$/15.1.html" />
         <option value="$PROJECT_DIR$/1.2.html" />
-        <option value="$PROJECT_DIR$/itchat0.html" />
-        <option value="$PROJECT_DIR$/itchat1.html" />
         <option value="$PROJECT_DIR$/itcha3.html" />
         <option value="$PROJECT_DIR$/itchat2.html" />
+        <option value="$PROJECT_DIR$/itchat1.html" />
         <option value="$PROJECT_DIR$/itchat3.html" />
+        <option value="$PROJECT_DIR$/itchat0.html" />
         <option value="$PROJECT_DIR$/itchat4.html" />
       </list>
     </option>
@@ -238,6 +238,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DeerPython-tutorial" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DeerPython-tutorial" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wx" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -326,7 +344,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1378" height="735" extended-state="1" />
+    <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -691,50 +709,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/itchat0.html">
+    <entry file="file://$PROJECT_DIR$/itchat2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1056" max-vertical-offset="3480">
-          <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1.2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="5496">
-          <caret line="49" column="79" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="79" />
+        <state vertical-scroll-proportion="-4.151515" vertical-offset="1255" max-vertical-offset="3672">
+          <caret line="58" column="16" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="97" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/itchat1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="967" max-vertical-offset="3696">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+        <state vertical-scroll-proportion="-3.4242425" vertical-offset="1399" max-vertical-offset="3696">
+          <caret line="63" column="94" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="94" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/itchat3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="14.030303" vertical-offset="2623" max-vertical-offset="4320">
-          <caret line="90" column="72" selection-start-line="90" selection-start-column="72" selection-end-line="90" selection-end-column="72" />
+        <state vertical-scroll-proportion="-6.3333335" vertical-offset="1975" max-vertical-offset="4344">
+          <caret line="91" column="100" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="100" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/itchat2.html">
+    <entry file="file://$PROJECT_DIR$/itchat0.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6969697" vertical-offset="319" max-vertical-offset="3648">
-          <caret line="17" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="146" selection-end-column="7" />
+        <state vertical-scroll-proportion="-8.0" vertical-offset="1056" max-vertical-offset="3504">
+          <caret line="55" column="69" selection-start-line="55" selection-start-column="69" selection-end-line="55" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1.2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5454545" vertical-offset="960" max-vertical-offset="5496">
+          <caret line="49" column="79" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="79" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/itchat4.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.33589253" vertical-offset="1111" max-vertical-offset="3096">
-          <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
+        <state vertical-scroll-proportion="-3.2380037" vertical-offset="9247" max-vertical-offset="9768">
+          <caret line="315" column="61" selection-start-line="315" selection-start-column="61" selection-end-line="315" selection-end-column="61" />
           <folding />
         </state>
       </provider>

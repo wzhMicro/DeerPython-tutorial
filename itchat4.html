@@ -30,14 +30,292 @@
             <!-- Content -->
             <section>
                 <header class="main">
-                    <h1>性别比重</h1>
+                    <h1>好友地理位置分布</h1>
 
                 </header>
                 <hr class="major" />
 
-                <h2>性别比重分析</h2>
-                <p>我们可以通过wxpy来分析自己好友的组成并且生成图表。</p>
-                
+                <h2>最简单好友地理位置分析</h2>
+                <p>最简单的一种就是wxpy自带的stats_text()函数，这个函数可以自动帮你分析你的好友，下面就用我的试试吧。</p>
+                <pre><code>from wxpy import *
+bot = Bot(cache_path=True)
+my_friends = bot.friends()
+print(my_friends.stats_text())
+                </code></pre>
+                <p>运行后结果显示如下：</p>
+                <pre><code>TOP 10 省份
+                    Tasmania: 73 (13.77%)
+                    甘肃: 35 (6.60%)
+                    福建: 35 (6.60%)
+                    青海: 32 (6.04%)
+                    北京: 28 (5.28%)
+                    Victoria: 18 (3.40%)
+                    四川: 17 (3.21%)
+                    上海: 17 (3.21%)
+                    广东: 14 (2.64%)
+                    New South Wales: 11 (2.08%)
+
+TOP 10 城市
+                    Hobart: 70 (13.21%)
+                    兰州市: 32 (6.04%)
+                    西宁: 31 (5.85%)
+                    Melbourne: 17 (3.21%)
+                    成都: 16 (3.02%)
+                    厦门: 15 (2.83%)
+                    Sydney: 11 (2.08%)
+                    海淀: 11 (2.08%)
+                    福州: 10 (1.89%)
+                    西安: 8 (1.51%)</code></pre>
+                <p>这样就可以很直观看到自己的好友组成比例，但是只有文字这样看起来好像有点枯燥，让我们做点改进。</p>
+                <p>下面我们利用matplotlib生成一个直方图。首先需要几个库</p>
+                <pre><code>from wxpy import *
+from matplotlib.font_manager import  FontProperties
+import matplotlib.pyplot as plot
+bot = Bot(cache_path=True)
+my_friends = bot.friends()
+
+FontPath = 'C:\Windows\Fonts\simsun.ttc'
+Font = FontProperties(fname=FontPath)            # 这两步为了确保中文在图片能够正确显示。
+
+all_dict = {}      # 建立一个字典  内容为{地区：数量}
+for friend in my_friends:
+    province = friend.province if friend.province.strip() else 'other'
+    if province in all_dict :
+        all_dict[province] += 1             #  地区存在+1
+    else:
+        all_dict[province] = 1              # 不存在则从1开始计数
+
+
+plot.figure(1, figsize=[10, 6])
+plot.title('\"%s\"的微信朋友地区分布' % bot.self.name,fontproperties=Font)
+plot.xlabel('城市',fontproperties=Font)    #x轴
+plot.ylabel('人数',fontproperties=Font)    #y轴
+
+x = range(0, len(all_dict .keys()))
+plot.bar(left=x,height=list(all_dict .values()),
+align='center',)
+
+plot.xticks(x, list(all_dict .keys()), rotation=90,fontproperties=Font)
+
+for (x, key) in enumerate(all_dict .keys()):
+    plot.text(x - 0.25, all_dict [key] + 1.5, '%d' % all_dict [key], rotation=90,fontproperties=Font)
+provinceDistImg = 'province.png'
+plot.savefig(provinceDistImg)
+plot.close('all')</code></pre>登陆后显示如下：<img src="images/wx/province.png">
+                <hr class="major" />
+
+                <h2>地图显示</h2>
+                <p><pre>我们还有更炫酷的实现方法，和之前分析性别的Echart一样方便，只不过网址我们现在用不了，
+                    那我们就自己写个html吧，具体的js文件我们可以用cdn，不需要特殊下载。</pre></p>
+                <p>生成一个文件，改名为map.html,以记事本内容打开，将下面文件代码贴进去即可</p>
+                <img src="images/wx/map.PNG">
+                <p><a href="https://github.com/wzhMicro/wechat/blob/master/map.html" target="view_window">html代码</a></p>
+                <pre>效果如下<code><!DOCTYPE html>
+                    <html>
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+                        <title>ECharts</title>
+                        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+                        <script src="https://cdn.bootcss.com/echarts/4.2.0-rc.2/echarts.min.js"></script>
+                        <script src="http://echarts.baidu.com/asset/map/js/china.js"></script>
+                        <style>#china-map {width:800px; height: 800px;margin: auto;}</style>
+                    </head>
+                    <body>
+                    <div id="china-map"></div>
+                    <script>
+                        var myChart = echarts.init(document.getElementById('china-map'));
+                        var option = {
+                            title : {
+                                text: '微信好友全国分布图',
+                                x:'center'
+                            },
+                            tooltip : {//提示框组件。
+                                trigger: 'item'
+                            },
+                            legend: {
+                                orient: 'horizontal',//图例的排列方向
+                                x:'left',//图例的位置
+                                data:['好友数量']
+                            },
+                            dataRange: {
+                                min: 0,
+                                max: 120,
+                                x: 'left',
+                                y: 'bottom',
+                                text:['高','低'],           // 文本，默认为数值文本
+                                calculable : true
+                            },
+
+                            toolbox: {//工具栏
+                                show: true,
+                                orient : 'vertical',//工具栏 icon 的布局朝向
+                                x: 'right',
+                                y: 'center',
+                                feature : {//各工具配置项。
+                                    mark : {show: true},
+                                    dataView : {show: true, readOnly: false},//数据视图工具，可以展现当前图表所用的数据，编辑后可以动态更新。
+                                    restore : {show: true},//配置项还原。
+                                    saveAsImage : {show: true}//保存为图片。
+                                }
+                            },
+                            roamController: {//控制地图的上下左右放大缩小 图上没有显示
+                                show: true,
+                                x: 'right',
+                                mapTypeControl: {
+                                    'china': true,
+                                    'shanghai':true
+                                }
+                            },
+                            //配置属性
+                            series : [
+                                {
+                                    name: '好友数量',
+                                    type: 'map',
+                                    mapType: 'china',
+                                    roam: true,
+                                    //地图区域的多边形 图形样式;
+                                    itemStyle:{
+                                        normal:{label:{show:true}},//是图形在默认状态下的样式;//是否显示标签
+                                        emphasis:{label:{show:true}}//是图形在高亮状态下的样式,比如在鼠标悬浮或者图例联动高亮时
+                                    },
+
+                                    data:[
+                                        {'name': '北京', 'value': 16},
+                                        {'name': '上海', 'value': 19},
+                                        {'name': '天津', 'value': 1},
+                                        {'name': '重庆', 'value': 5},
+                                        {'name': '河北', 'value':2},
+                                        {'name': '山西', 'value': 1},
+                                        {'name': '吉林', 'value': 4},
+                                        {'name': '辽宁', 'value': 3},
+                                        {'name': '黑龙江', 'value': 4},
+                                        {'name': '陕西', 'value': 5},
+                                        {'name': '甘肃', 'value': 35},
+                                        {'name': '青海', 'value': 43},
+                                        {'name': '山东', 'value': 9},
+                                        {'name': '福建', 'value': 6},
+                                        {'name': '浙江', 'value': 128},
+                                        {'name': '台湾', 'value': 2},
+                                        {'name': '河南', 'value': 7},
+                                        {'name': '湖北', 'value': 7},
+                                        {'name': '湖南', 'value': 3},
+                                        {'name': '江西', 'value': 5},
+                                        {'name': '江苏', 'value': 15},
+                                        {'name': '安徽', 'value': 40},
+                                        {'name': '广东', 'value': 10},
+                                        {'name': '海南', 'value': 1},
+                                        {'name': '四川', 'value': 2},
+                                        {'name': '贵州', 'value': 24},
+                                        {'name': '云南', 'value': 0},
+                                        {'name': '内蒙古', 'value':28},
+                                        {'name': '新疆', 'value': 14},
+                                        {'name': '宁夏', 'value': 34},
+                                        {'name': '广西', 'value': 34},
+                                        {'name': '西藏', 'value': 3},
+                                        {'name': '香港', 'value': 0},
+                                        {'name': '澳门', 'value': 0},
+                                    ]
+                                }
+                            ]
+                        };
+                        myChart.setOption(option);
+                        myChart.on('mouseover', function (params) {
+                            var dataIndex = params.dataIndex;
+                            console.log(params);
+                        });
+                    </script>
+                    </body>
+                    </html></code></pre>
+                <p>上面这个地图是我的好友数量，那我们接下来就改成自己的吧。我们从刚才的html代码中k可以看到如下图部分，我们要做的就是
+                用自己的数据来替换</p>
+                <pre>继续回到python代码再刚才后面加上这部分<code>province_dict = {'北京': 0, '上海': 0, '天津': 0, '重庆': 0,
+'河北': 0, '山西': 0, '吉林': 0, '辽宁': 0, '黑龙江': 0,
+'陕西': 0, '甘肃': 0, '青海': 0, '山东': 0, '福建': 0,
+'浙江': 0, '台湾': 0, '河南': 0, '湖北': 0, '湖南': 0,
+'江西': 0, '江苏': 0, '安徽': 0, '广东': 0, '海南': 0,
+'四川': 0, '贵州': 0, '云南': 0,
+'内蒙古': 0, '新疆': 0, '宁夏': 0, '广西': 0, '西藏': 0,
+'香港': 0, '澳门': 0, '其他': 0}                          # 生成省份的统计，由于是中国地图只有国内省份。
+
+ # 统计省份
+for friend in my_friends:
+    if friend.province in province_dict.keys():
+        province_dict[friend.province] += 1
+    if friend.province not in province_dict.keys():
+        province_dict['其他'] += 1
+
+# 生成JSON Array格式数据
+data = []
+for key, value in province_dict.items():
+    data.append({'name': key, 'value': value})
+
+print(data)</code>执行后会有如下显示：</pre><img src="images/wx/mapre.PNG">
+                <p>那现在只要将自己的数据复制好然后替换到刚才的html代码中即可<strong>（注意开头和结尾的<code>[</code>和<code>]</code>不要复制）</strong></p>
+                <pre>我把这部分全部代码放到一起<code>from wxpy import *
+from matplotlib.font_manager import  FontProperties
+import matplotlib.pyplot as plot
+bot = Bot(cache_path=True)
+my_friends = bot.friends()
+print(my_friends.stats_text())
+FontPath = 'C:\Windows\Fonts\simsun.ttc'
+Font = FontProperties(fname=FontPath)
+
+def provinceDist(my_friends):
+    province_dict = {'北京': 0, '上海': 0, '天津': 0, '重庆': 0,
+    '河北': 0, '山西': 0, '吉林': 0, '辽宁': 0, '黑龙江': 0,
+    '陕西': 0, '甘肃': 0, '青海': 0, '山东': 0, '福建': 0,
+    '浙江': 0, '台湾': 0, '河南': 0, '湖北': 0, '湖南': 0,
+    '江西': 0, '江苏': 0, '安徽': 0, '广东': 0, '海南': 0,
+    '四川': 0, '贵州': 0, '云南': 0,
+    '内蒙古': 0, '新疆': 0, '宁夏': 0, '广西': 0, '西藏': 0,
+    '香港': 0, '澳门': 0, '其他': 0}
+
+    # 统计省份
+    for friend in my_friends:
+        if friend.province in province_dict.keys():
+            province_dict[friend.province] += 1
+        if friend.province not in province_dict.keys():
+            province_dict['其他'] += 1
+
+    # 生成JSON Array格式数据
+    data = []
+    for key, value in province_dict.items():
+        data.append({'name': key, 'value': value})
+
+    print(data)
+
+    all_dict = {}
+    for friend in my_friends:
+        province = friend.province if friend.province.strip() else 'other'
+        if province in all_dict :
+            all_dict[province] += 1
+        else:
+            all_dict[province] = 1
+
+
+    plot.figure(1, figsize=[10, 6])
+    plot.title('\"%s\"的微信朋友地区分布统计' % bot.self.name,fontproperties=Font)
+    plot.xlabel('城市',fontproperties=Font)
+    plot.ylabel('分布人数',fontproperties=Font)
+
+    x = range(0, len(all_dict .keys()))
+    plot.bar(left=x,height=list(all_dict .values()),
+    align='center',)
+
+    plot.xticks(x, list(all_dict .keys()), rotation=90,fontproperties=Font)
+
+    for (x, key) in enumerate(all_dict .keys()):
+        plot.text(x - 0.25, all_dict [key] + 1.5, '%d' % all_dict [key], rotation=90,fontproperties=Font)
+    provinceDistImg = 'province.png'
+    plot.savefig(provinceDistImg)
+    plot.close('all')
+    return provinceDistImg
+if __name__ == '__main__':
+    provinceDist(my_friends)</code></pre>
+                <p>那到此我们微信部分就全部结束了，各位小伙伴如果还有什么新奇的功能不用忘了和我分享哦！</p>
+
+                <a href="https://github.com/wzhMicro/wechat/blob/master/province_map.py">代码在这里</a>
             </section>
             <ul class="actions">
                 <li><a href="itchat3.html" class="button">上一节</a></li>
