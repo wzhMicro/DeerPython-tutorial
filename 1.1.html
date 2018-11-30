@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="shortcut icon"  href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
 </head>
 <body class="is-preload">
 
@@ -52,7 +53,25 @@
                 <li><a href="1.2.html" class="button primary">下一节</a></li>
 
             </ul>
+
+
         </div>
+
+        <div id="container"></div>
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+        <script>
+            var gitment = new Gitment({
+
+                owner: 'wzhMicro',
+                repo: 'wzhMicro.github.io',
+                oauth: {
+                    client_id: '3cd1bd86732f399e5138',
+                    client_secret: 'a0f19b5cde368aa56efc58e0e76c951b4ec1a404'
+                }
+            });
+            gitment.render('container');
+        </script>
     </div>
 
     <!-- Sidebar -->
