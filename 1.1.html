@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="shortcut icon"  href="images/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+
 </head>
 <body class="is-preload">
 
@@ -57,23 +57,7 @@
 
         </div>
 
-        <div id="gitmentContainer"></div>
-        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-
-        <script>
-            var gitment = new Gitment({
-
-                id: '<%= page.date %>',
-
-                owner: 'wzhMicro',
-                repo: 'wzhMicro.github.io',
-                oauth: {
-                    client_id: '3cd1bd86732f399e5138',
-                    client_secret: 'a0f19b5cde368aa56efc58e0e76c951b4ec1a404'
-                }
-            });
-            gitment.render('gitmentContainer');
-        </script>
+        
     </div>
 
     <!-- Sidebar -->
@@ -217,7 +201,7 @@
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/browser.min.js"></script>
 <script src="assets/js/breakpoints.min.js"></script>
-
+<script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
 
 </body>
