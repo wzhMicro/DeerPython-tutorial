@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Deer Python</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="shortcut icon"  href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <p class="logo"><a href="index.html"><strong>Deer</strong>—Python</a></p>
+                <ul class="icons">
+                    <li><a href="https://space.bilibili.com/379211059/#/" ><span class="label"><img src="images/bilibili.png"></span></a></li>
+                    <li><a href="https://github.com/wzhMicro" class="icon fa-github"><span class="label">Github</span></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCN9JQUexZdUEAqJ-pylMTLg?view_as=subscriber" class="icon fa-youtube"><span class="label">Youtube</span></a></li>
+                </ul>
+            </header>
+
+            <!-- Content -->
+            <section>
+                <header class="main">
+                    <h1>QR-code</h1>
+                    <p>Python有内置的二维码库，可以生成<a href="#qrcode1">普通的二维码</a>，<a href="#qrcode2">图片二维码</a>，<a href="#qrcode3">动态二维码</a></p>
+                </header>
+                <hr class="major" />
+
+                <h2>安装</h2>
+                <p>同样我们首先要安装库。</p>
+                <pre><code>pip install myqr</code>也许你的Python版本需要改成pip3.</pre>
+                <p>
+                    ok,这样我们就可以开始制作自己的二维码了，实际每个二维码都只有一行代码，我们需要在cmd命令提示行下进行操作。
+                </p>
+
+                <hr class="major" />
+
+                <h2>参数</h2>
+                <pre><code>myqr 图片内容文字     [-v {1,2,3,...,40}]
+                    [-l {L,M,Q,H}]
+                    [-n output-filename]
+                    [-d output-directory]
+                    [-p picture_file]
+                    [-c]
+                    [-con contrast]
+                    [-bri brightness]</code>
+                其中括号内的项目是选填，下面我们来看看什么意思<code><strong>-v  默认边长</strong>
+数字是1~40，数字越大边长越大</code>
+                <code><strong>-l  纠错等级</strong>
+内容是L、M、Q、H。L最小，H最大。。即使编码受损，也可自动恢复数据，纠错能力越高，数据量会随之增加，尺寸也会变大</code>
+                <code><strong>-n  输出文件名</strong>
+默认输出名字是：qrcode.png, 格式可以是 .jpg， .png ，.bmp ，.gif </code>
+                <code><strong>-d  输出位置</strong>
+默认位置是当前目录</code>
+                <code><strong>-p  图片结合</strong>
+将二维码图像与一张同目录下的图片相结合，产生一张黑白图片</code>
+                <code><strong>-c 色彩</strong>
+可以将黑白二维码变为彩色</code>
+                <code><strong>-con 对比度</strong>
+                    可以将黑白二维码变为彩色</code>
+                <code><strong>-bri 亮度</strong>
+                    可以将黑白二维码变为彩色</code></pre>
+                <hr class="major" />
+
+                <h2>可用字符</h2>
+                <ul><li>数字 0 到 9</li>
+                    <li>英文字母</li>
+                    <li>· , . : ; + - * / \ ~ ! @ # $ % ^ & ` ' = < > [ ] ( ) ? _ { } | and  (space)</li></ul>
+                <hr class="major" />
+
+                <h2><a name="qrcode1">普通二维码</a></h2>
+                <img src="images/qrcode/qrcode1.png">
+                <p>普通二维码可以将文字内容加进去或者将二维码链接到一个网站，这里我用一个网站做示范。</p>
+                <code>myqr https://wzhmicro.github.io/</code>
+                <img src="images/qrcode/qrcode1.gif">
+                <hr class="major" />
+
+                <h2><a name="qrcode2">图片二维码</a></h2>
+                <pre><p>接下来我们将二维码变成以这个图为底版的二维码。</p>
+                <img src="images/qrcode/deer.jpg">
+                <img src="images/qrcode/deer_qrcode.png">
+                <code>myqr https://wzhmicro.github.io/ -p deer.jpg</code>
+                <p>接下来我们变成彩色的图片,我们只有加上-c的参数就可以</p>
+                <code>myqr https://wzhmicro.github.io/ -p deer.jpg -c</code>
+                <img src="images/qrcode/deer_qrcodeco.png"></pre>
+                <hr class="major" />
+
+                <h2><a name="qrcode3">动态二维码</a></h2>
+                <img src="images/qrcode/example.gif">
+                <p>和图片一样的代码，只是将png或者gif换成了gif格式，同样需要彩色别忘了加-c</p>
+                <code>myqr https://wzhmicro.github.io/ -p example.gif -c -v 15</code>
+                <img src="images/qrcode/example_qrcode1.gif">
+
+
+            </section>
+            <ul class="actions">
+                <li><a href="index.html" class="button">首页</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>微信分析目录选项</h2>
+                </header>
+                <ul>
+                    <li><a href="#qrcode1">普通的二维码</a></li>
+                    <li><a href="#qrcode2">图片二维码</a></li>
+                    <li><a href="#qrcode3">动态二维码</a></li>
+                </ul>
+
+            </nav>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>杂文</h2>
+                </header>
+                <div class="mini-posts">
+                    <article>
+                        <a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+                        <p>还未完成暂不开放，谢谢</p>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+                        <p>还未完成暂不开放，谢谢</p>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+                        <p>还未完成暂不开放，谢谢</p>
+                    </article>
+                </div>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </section>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>如果大家有什么建议或者建议请及时联系我我才能为大家做出更好的教程</p>
+                <ul class="contact">
+                    <li class="fa-envelope-o"><a href="#">zhihao8612@gmail.com</a></li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">&copy;2018 wzhMicro.github.io All rights reserved.</p>
+            </footer>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
