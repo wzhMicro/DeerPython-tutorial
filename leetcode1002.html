@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Deer Python</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="shortcut icon"  href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <p class="logo"><a href="index.html"><strong>Deer</strong>—Python</a></p>
+                <ul class="icons">
+                    <li><a href="https://space.bilibili.com/379211059/#/" ><span class="label"><img src="images/bilibili.png"></span></a></li>
+                    <li><a href="https://github.com/wzhMicro" class="icon fa-github"><span class="label">Github</span></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCN9JQUexZdUEAqJ-pylMTLg?view_as=subscriber" class="icon fa-youtube"><span class="label">Youtube</span></a></li>
+                </ul>
+            </header>
+
+            <!-- Content -->
+            <section>
+                <header class="main">
+                    <h1>Leetcode 1002</h1>
+                    <p>这道题我认为有趣是因为用到了'与'操作，真是想不到还有这种操作。</p>
+                </header>
+                <hr class="major" />
+
+                <h2>英文题目</h2>
+                <p>Given an array A of strings made only from lowercase letters, return a list of all characters that show up in all strings within the list (including duplicates).  For example, if a character occurs 3 times in all strings but not 4 times, you need to include that character three times in the final answer.
+
+                    You may return the answer in any order.</p>
+
+                <hr class="major" />
+                <p>
+                <pre><code>Example 1:
+
+                    Input: ["bella","label","roller"]
+                    Output: ["e","l","l"]
+Example 2:
+
+                    Input: ["cool","lock","cook"]
+                    Output: ["c","o"]</code></pre></p>
+
+
+                <h2>答案</h2>
+                <p><pre><code>def commonChars(self, A):
+    dic=collections.Counter(A[0])
+    for i in A[1:]:
+        count=collections.Counter(i)
+        dic=dic&count
+    return list(dic.elements())</code></pre></p>
+                <h2>解析</h2>
+                <p>我们这里以第一个例子做示例。那么dic={'b':1,'e':1,'l':2,'a':1},值得注意的是第二个遍历的字典count，要注意<strong>这个字典是在for循环中</strong>，
+所以是每个单词逐个遍历，所以最后结果是count={'r':2,'o':1,'l':2,'e':1}.也就是dic字典每次和下一个作比较，只保留相同的字符，否则删除。具体为以下几步：
+<pre>第一次：count={'l':2,'a':1,'b':1,'e':1}, dic&count -->，dic={'b':1,'a':1,'e':1,'l':2}
+第二次：count={'r':2,'o':1,'l':2,'e':1}, dic&count -->，dic={'e':1,'l':2}
+最后返回dic字典中的所有elements即可</pre>
+                </p>
+            </section>
+            <ul class="actions">
+                <li><a href="index.html" class="button">首页</a></li>
+                <li><a href="#" class="button primary">下一节</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>有趣杂文</h2>
+                </header>
+                <ul>
+                    <li><a href="#">leetcode 1002</a></li>
+                    <li><a href="#">####</a></li>
+                </ul>
+
+            </nav>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>杂文</h2>
+                </header>
+                <div class="mini-posts">
+                    <article>
+                        <a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+                        <p>还未完成暂不开放，谢谢</p>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+                        <p>还未完成暂不开放，谢谢</p>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+                        <p>还未完成暂不开放，谢谢</p>
+                    </article>
+                </div>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </section>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>如果大家有什么建议或者建议请及时联系我我才能为大家做出更好的教程</p>
+                <ul class="contact">
+                    <li class="fa-envelope-o"><a href="#">zhihao8612@gmail.com</a></li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">&copy;2018 wzhMicro.github.io All rights reserved.</p>
+            </footer>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
