@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-<html>
+<html xmlns:n="http://www.w3.org/1999/html">
 <head>
     <title>Deer Python</title>
     <meta charset="utf-8" />
@@ -30,9 +30,67 @@
             <!-- Content -->
             <section>
                 <header class="main">
+
+                </header>
+                    <h1>sum of two intergers</h1>
+                    <p>(不用‘+’和‘-’的加法运算)这道题其实就是解释了底层的加法原理</p>
+
+                <hr class="major" />
+
+                <h2>加法运算</h2>
+                <p>加减乘除例子就不给了</p>
+
+                <hr class="major" />
+
+                <h2>答案</h2>
+                <p><pre><code>          def Sum(self, a,b):
+                if a==-b:
+                    return 0
+                if a < 0:
+                    return -self.Sum(-a,-b)
+                while b:
+                    c=a&b
+                    a^=b
+                    b=c<<1
+                return a</code></pre></p>
+                <h2>解析</h2>
+                <p><pre>例如a=3=0011，b=5=0101
+1.'&'来找到a和b的需要的进位c。0011&0101=0001。
+2.用'^'找到所有的不同位，赋值给a。0011^0101=0110=a
+3.将进位c左移一位并赋值给b。0001<<1=0010=b
+4.重复以上动作直到进位为0.此时的a即为a+b的结果.</pre>
+                </p>
+                <hr class="major" />
+                <h1>poor pig</h1>
+                <p>这道题非常的有意思，可以看看这个思路</p>
+
+                <hr class="major" />
+
+                <p>有n桶，其中只有一个有毒，小猪喝了有毒的水后m分钟会死，那么时间p内找出有毒的桶最少需要几头猪</p>
+
+                <hr class="major" />
+
+                <h2>答案</h2>
+                <p><pre><code>          def pig(self, n,m，p):
+                if n<2:
+                        return 0
+                x=1
+                y=p/m+1   (这里后面解释什么是y)
+                while y**x < n:
+                    x+=1
+                return x</code></pre></p>
+                <h2>解析</h2>
+                <p><pre>首先假设一只猪喝了有毒的水后15分钟会死，那么一只猪一小时最多可以测5桶，即60/15=4， 4+1=5，因为
+喝了四口后一小时不死那么最后一个肯定有毒。那我们考虑一下如果换成2只猪呢，你可能认为是5+5=10桶，但其实2只可以在一小时
+测25桶。将桶摆放为5*5的矩阵，猪A每15分钟将同一行内5只桶都喝一口，猪B每15分钟将同一列内5只桶都喝一口，最后可根据交叉
+的那一桶来推算出哪一桶有毒。当 '5只桶**猪的数量 > 桶数量' 时就可以停止.</pre></p>
+                <img src="images/leetcode/pig.png">
+                <p>所以代码中的y就是现有的猪在p时间内最多可测的桶的数量。</p>
+                </p>
+                <hr class="major" />
                     <h1>Leetcode 1002</h1>
                     <p>这道题我认为有趣是因为用到了'与'操作，真是想不到还有这种操作。</p>
-                </header>
+
                 <hr class="major" />
 
                 <h2>英文题目</h2>
@@ -101,7 +159,7 @@ Example 2:
                 <div class="mini-posts">
                     <article>
                         <a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-                        <p>还未完成暂不开放，谢谢</p>
+                        <p>Leetcode有趣的算法题</p>
                     </article>
                     <article>
                         <a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
