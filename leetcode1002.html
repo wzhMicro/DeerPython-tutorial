@@ -66,7 +66,7 @@
 
                 <hr class="major" />
 
-                <p>有n桶，其中只有一个有毒，小猪喝了有毒的水后m分钟会死，那么时间p内找出有毒的桶最少需要几头猪</p>
+                <p>有n个桶，其中只有一个有毒，小猪喝了有毒的水后m分钟会死，那么时间p内找出有毒的桶最少需要几头猪</p>
 
                 <hr class="major" />
 
@@ -86,7 +86,7 @@
 的那一桶来推算出哪一桶有毒。当 '5只桶**猪的数量 > 桶数量' 时就可以停止.</pre></p>
                 <img src="images/leetcode/pig.png">
                 <p>所以代码中的y就是现有的猪在p时间内最多可测的桶的数量。</p>
-                </p>
+
                 <hr class="major" />
                     <h1>Leetcode 1002</h1>
                     <p>这道题我认为有趣是因为用到了'与'操作，真是想不到还有这种操作。</p>
@@ -124,6 +124,47 @@ Example 2:
 第二次：count={'r':2,'o':1,'l':2,'e':1}, dic&count -->，dic={'e':1,'l':2}
 最后返回dic字典中的所有elements即可</pre>
                 </p>
+                <hr class="major" />
+                <h1>15.3 SUM</h1>
+                <p>求一个数组中任意3个数相加为0的情况，不能重复。</p>
+
+                <hr class="major" />
+
+                <p>nums = [-1, 0, 1, 2, -1, -4],
+
+                    A solution set is:
+                    [
+                    [-1, 0, 1],
+                    [-1, -1, 2]
+                    ]</p>
+
+                <hr class="major" />
+
+                <h2>答案</h2>
+                <p><pre><code>def threeSum(self, nums: List[int]) -> List[List[int]]:
+    res=[]
+    if len(nums)<3:
+        return res
+
+    nums.sort()
+    for i in range(len(nums)-2):
+        if i>0 and nums[i] == nums[i-1]: continue
+        l,r=i+1,len(nums)-1
+        while l < r:
+            if nums[i]+nums[l]+nums[r]==0:
+                res.append([nums[i],nums[l],nums[r]])
+                l+=1
+                r-=1
+                while l < r and nums[l]==nums[l-1]:l+=1
+                while l < r and nums[r]==nums[r+1]:r-=1
+            elif nums[i]+nums[l]+nums[r]<0:
+                l+=1
+            else:
+                r-=1
+    return res</code></pre></p>
+                <h2>解析</h2>
+                <p><pre>这道题有很多解法，这里采用的是双指针。</pre></p>
+
             </section>
             <ul class="actions">
                 <li><a href="index.html" class="button">首页</a></li>

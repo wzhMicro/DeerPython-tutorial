@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+
+<html xmlns:n="http://www.w3.org/1999/html">
+<head>
+    <title>Deer Python</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="shortcut icon"  href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <p class="logo"><a href="index.html"><strong>Deer</strong>—Python</a></p>
+                <ul class="icons">
+                    <li><a href="https://space.bilibili.com/379211059/#/" ><span class="label"><img src="images/bilibili.png"></span></a></li>
+                    <li><a href="https://github.com/wzhMicro" class="icon fa-github"><span class="label">Github</span></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCN9JQUexZdUEAqJ-pylMTLg?view_as=subscriber" class="icon fa-youtube"><span class="label">Youtube</span></a></li>
+                </ul>
+            </header>
+
+            <!-- Content -->
+            <section>
+                <header class="main">
+
+                </header>
+                <h1>插入排序</h1>
+                <hr class="major" />
+
+                <h2>原理</h2>
+                <p>每次排序都挑出来一个数，将其放入相应的位置，最后得出就是有序的数列。时间复杂度为O(n^2)，是稳定的排序方法（后面会说稳定是什么意思。</p>
+
+                <hr class="major" />
+
+                <h2>代码</h2>
+                <p><pre><code>def Insert(list):
+n=len(list)
+for i in range(1,n):
+    j=i
+    while j>0 and list[j]>list[j-1]:
+        list[j],list[j-1]=list[j-1],list[j]
+        j-=1
+return list
+               </code></pre></p>
+                <h2>解析</h2>
+                <p><pre>例如list=[49,38,65,97,76,13,27,<strong>49</strong>]
+第一次：选出来list[1]=38,变换后为[(38,49),65,97,76,13,27,<strong>49</strong>]
+第二次：选出来list[2]=65,变换后为[(38,49,65),97,76,13,27,<strong>49</strong>]
+第三次：选出来list[3]=97,变换后为[(38,49,65,97),76,13,27,<strong>49</strong>]
+第四次：选出来list[4]=76,变换后为[(38,49,65,76,97),13,27,<strong>49</strong>]
+第五次：选出来list[5]=13,变换后为[(13,38,49,65,97,76),27,<strong>49</strong>]
+第六次：选出来list[6]=27,变换后为[(13,27,38,49,65,97,76),<strong>49</strong>]
+第七次：选出来list[7]=<strong>49</strong>,变换后为[(13,27,38,49,<strong>49</strong>,65,97,76)]
+       到这里就全部排序完成。(list中的括号是方便观看并不是真的创建了个元组)
+</pre>
+
+                再解释一下<strong>什么是稳定的排序</strong>。上面的例子中有两个49，排序前加粗的49在后面，排序后依然在后面，
+                这样的情况就为稳定的排序。</p>
+                <hr class="major" />
+                <h1>选择排序</h1>
+                <hr class="major" />
+
+                <h2>原理</h2>
+                <p>取最小或最大的与第一个交换.时间复杂度是O(n^2),选择排序是不稳定的排序。</p>
+
+                <hr class="major" />
+
+                <h2>代码</h2>
+                <p><pre><code>def Select(list):
+    n=len(list)
+    for i in range(0,n-1):
+            min_index=i
+        for j in range(i+1,n):
+            if list[min_index]>list[j]:
+                min_index=j
+        if i!=min_index:
+            list[i],list[min_index]=list[min_index],list[i]
+    return list
+            </code></pre></p>
+                <h2>解析</h2>
+                <p><pre>例如list=[3，1，5，7，2，4，9，6]
+第一次：选出来key=1,变换后为[1，3，5，7，2，4，9，6]
+第二次：选出来key=2,变换后为[1，2，5，7，3，4，9，6]
+第三次：选出来key=3,变换后为[1，2，3，7，5，4，9，6]
+第四次：选出来key=4,变换后为[1，2，3，4，5，7，9，6]
+第五次：选出来key=5,变换后为[1，2，3，4，5，7，9，6]
+第六次：选出来key=6,变换后为[1，2，3，4，5，6，9，7]
+第七次：选出来key=7,变换后为[1，2，3，4，5，6，7，9]
+       排序完成。
+</pre></p>
+                <hr class="major" />
+                <h1>冒泡排序</h1>
+                <hr class="major" />
+
+                <h2>原理</h2>
+                <p>重复地走访过要排序的元素列，依次比较两个相邻的元素，如果他们的顺序（如从大到小、首字母从A到Z）错误就
+                    把他们交换过来。最小或最大的数会像气泡一样'浮'到顶端，所以叫做冒泡排序 。时间复杂度是O(n^2),冒泡排序是稳定的排序。</p>
+
+                <hr class="major" />
+
+                <h2>代码</h2>
+                <p><pre><code>def Bubble(list):
+    n=len(list)
+    for j in range(0,n-1):
+        for i in range(0,n-j-1):
+            if list[i]>list[i+1]:
+                tmp=list[i+1]
+                list[i+1]=list[i]
+                list[i]=tmp
+    return list
+            </code></pre></p>
+                <h2>解析</h2>
+                <p><pre>例如list=[2,1,4,3,8,5]
+第一次：2和1作比较,变换后为[1,2,4,3,8,5]
+第二次：2和4作比较,保持原状不变[1,2,4,3,8,5]
+第三次：4和3作比较,变换后为[1,2,3,4,8,5]
+第四次：4和8作比较,保持原状不变[1,2,3,4,8,5]
+第五次：8和5作比较,变换后为[1,2,3,4,5,8]
+       排序完成。
+</pre>个人认为冒泡排序比较低效，但是中间交换的那几步比较关键。
+                冒泡排序可以改进为鸡尾酒排序，大家有兴趣可以了解一下。</p>
+                <hr class="major" />
+                <h1>希尔排序</h1>
+                <hr class="major" />
+
+                <h2>原理</h2>
+                <p>重复地走访过要排序的元素列，依次比较两个相邻的元素，如果他们的顺序（如从大到小、首字母从A到Z）错误就
+                    把他们交换过来。最小或最大的数会像气泡一样'浮'到顶端，所以叫做冒泡排序 。时间复杂度是O(n^2),冒泡排序是稳定的排序。</p>
+
+                <hr class="major" />
+
+                <h2>代码</h2>
+                <p><pre><code>def Bubble(list):
+                n=len(list)
+                for j in range(0,n-1):
+                for i in range(0,n-j-1):
+                if list[i]>list[i+1]:
+                tmp=list[i+1]
+                list[i+1]=list[i]
+                list[i]=tmp
+                return list
+            </code></pre></p>
+                <h2>解析</h2>
+                <p><pre>例如list=[2,1,4,3,8,5]
+第一次：2和1作比较,变换后为[1,2,4,3,8,5]
+第二次：2和4作比较,保持原状不变[1,2,4,3,8,5]
+第三次：4和3作比较,变换后为[1,2,3,4,8,5]
+第四次：4和8作比较,保持原状不变[1,2,3,4,8,5]
+第五次：8和5作比较,变换后为[1,2,3,4,5,8]
+       排序完成。
+</pre>个人认为冒泡排序比较低效，但是中间交换的那几步比较关键。
+                冒泡排序可以改进为鸡尾酒排序，大家有兴趣可以了解一下。</p>
+            </section>
+            <ul class="actions">
+                <li><a href="index.html" class="button">首页</a></li>
+                <li><a href="#" class="button primary">下一节</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>有趣杂文</h2>
+                </header>
+                <ul>
+                    <li><a href="#">leetcode 1002</a></li>
+                    <li><a href="#">####</a></li>
+                </ul>
+
+            </nav>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>杂文</h2>
+                </header>
+                <div class="mini-posts">
+                    <article>
+                        <a href="leetcode1002.html" class="image"><img src="images/pic07.jpg" alt="" /></a>
+                        <p>Leetcode有趣的算法题</p>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+                        <p>还未完成暂不开放，谢谢</p>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+                        <p>还未完成暂不开放，谢谢</p>
+                    </article>
+                </div>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </section>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>如果大家有什么建议或者建议请及时联系我我才能为大家做出更好的教程</p>
+                <ul class="contact">
+                    <li class="fa-envelope-o"><a href="#">zhihao8612@gmail.com</a></li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">&copy;2018 wzhMicro.github.io All rights reserved.</p>
+            </footer>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
