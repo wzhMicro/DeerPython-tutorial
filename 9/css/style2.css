@@ -145,7 +145,51 @@ body {
 	background-image: url(../pic/22.png);
 	color: #70737d;
 }
-
+.cube:not(.cube--inactive):nth-child(23) .cube__side,
+.no-js .cube:not(.cube--inactive):nth-child(23) {
+	background-image: url(../pic/1.png);
+	color: #70737d;
+}
+.cube:not(.cube--inactive):nth-child(24) .cube__side,
+.no-js .cube:not(.cube--inactive):nth-child(24) {
+	background-image: url(../pic/12.png);
+	color: #cddc39;
+}
+.cube:not(.cube--inactive):nth-child(25) .cube__side,
+.no-js .cube:not(.cube--inactive):nth-child(25) {
+	background-image: url(../pic/4.png);
+	color: #009688;
+}
+.cube:not(.cube--inactive):nth-child(26) .cube__side,
+.no-js .cube:not(.cube--inactive):nth-child(26) {
+	background-image: url(../pic/7.png);
+	color:  #f44336;
+}
+.cube:not(.cube--inactive):nth-child(27) .cube__side,
+.no-js .cube:not(.cube--inactive):nth-child(27) {
+	background-image: url(../pic/20.png);
+	color: #cddc39;
+}
+.cube:not(.cube--inactive):nth-child(28) .cube__side,
+.no-js .cube:not(.cube--inactive):nth-child(28) {
+	background-image: url(../pic/11.png);
+	color: #795548;
+}
+.cube:not(.cube--inactive):nth-child(29) .cube__side,
+.no-js .cube:not(.cube--inactive):nth-child(29) {
+	background-image: url(../pic/16.png);
+	color: #cddc39;
+}
+.cube:not(.cube--inactive):nth-child(30) .cube__side,
+.no-js .cube:not(.cube--inactive):nth-child(30) {
+	background-image: url(../pic/12.png);
+	color: #ffeb3b;
+}
+.cube:not(.cube--inactive):nth-child(31) .cube__side,
+.no-js .cube:not(.cube--inactive):nth-child(31) {
+	background-image: url(../pic/2.png);
+	color: #405d6b;
+}
 .cube--inactive .cube__side,
 .no-js .cube--inactive {
 	background: #2e2e37;
